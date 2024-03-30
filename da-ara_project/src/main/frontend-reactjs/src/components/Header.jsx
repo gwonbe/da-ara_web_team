@@ -1,4 +1,4 @@
-import Sidebar from "../pages/Menu/Sidebar";
+import SideContents from "../pages/Menu/SideContents0";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -25,7 +25,7 @@ const Title = styled.div`
 const Header = () => {
   return (
     <Container>
-      <Sidebar width={320}></Sidebar>
+      <SideContents />
       <Title>DA-ARA</Title>
     </Container>
   );
