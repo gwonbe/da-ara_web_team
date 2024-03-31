@@ -1,5 +1,7 @@
-import SideContents from "../pages/Menu/SideContents0";
+// Header.jsx
 import styled from "styled-components";
+import Modal from "../pages/Menu/SideModal";
+import { useState } from "react";
 
 const Container = styled.div`
   min-width: 360px;
@@ -12,7 +14,7 @@ const Container = styled.div`
   background: #fff;
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   float: left;
   width: 100%;
   box-sizing: border-box;
@@ -21,12 +23,42 @@ const Title = styled.div`
   font-weight: bold;
   text-align: center;
 `;
+const SideBar = styled.div`
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  padding: 7px;
+`;
+const Button = styled.button`
+  background-color: #fff;
+  top: 7px;
+  width: 40px;
+  height: 30px;
+  transition: 0.8s ease;
+  overflow: hidden;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+`;
 
 const Header = () => {
+  const [modal, setModal] = useState(false);
   return (
     <Container>
-      <SideContents />
       <Title>DA-ARA</Title>
+      <SideBar>
+        <Button
+          onClick={() => {
+            modal === true ? setModal(false) : setModal(true);
+          }}
+        >
+          메뉴
+        </Button>
+        {modal === true ? <Modal /> : null}
+      </SideBar>
     </Container>
   );
 };

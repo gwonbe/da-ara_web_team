@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import LoginPage from "./pages/Login/LoginPage";
-import MainPage from "./pages/Chatting/MainPage";
+import Main from "./components/Main";
 import SignupPage from "./pages/Login/SignupPage";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -14,7 +14,7 @@ const resize = () => {
 };
 
 const routerList = [
-  { path: "/", element: <MainPage /> },
+  { path: "/", element: <Main /> },
   { path: "/chatpage", element: <ChatPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
@@ -45,7 +45,7 @@ function App() {
           ))}
         </Routes>
       </Router>
-      받아온값 :{data}
+      받아온 값 :{data}
     </div>
   );
 }
