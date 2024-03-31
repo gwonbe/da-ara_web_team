@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 const Box = styled.div`
   width: 250px;
-  height: 200px;
-  background-color: antiquewhite;
+  height: 100%;
+  background-color: blue;
   text-align: left;
-  margin: 10px;
-  padding: 15px;
+  padding: 0;
 `;
 
-function Modal() {
+function SideModal() {
   return (
     <Box>
       <h4>title</h4>
@@ -19,4 +18,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default SideModal;
