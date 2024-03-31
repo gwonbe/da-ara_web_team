@@ -1,7 +1,7 @@
 // Header.jsx
 import styled from "styled-components";
 import Modal from "../pages/Menu/SideModal";
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Container = styled.div`
   min-width: 360px;
@@ -29,13 +29,12 @@ const SideBar = styled.div`
   bottom: 0;
   left: 0;
   z-index: 99;
-  padding: 7px;
 `;
 const Button = styled.button`
   background-color: #fff;
   top: 7px;
   width: 40px;
-  height: 30px;
+  height: 50px;
   transition: 0.8s ease;
   overflow: hidden;
   font-weight: bold;
@@ -45,11 +44,25 @@ const Button = styled.button`
 `;
 
 const Header = () => {
+  const el = useRef();
   const [modal, setModal] = useState(false);
+
+  const handleCloseModal = (e) => {
+    if (modal && (!el.current || !el.current.contains(e.target)))
+      setModal(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("click", handleCloseModal);
+    return () => {
+      window.removeEventListener("click", handleCloseModal);
+    };
+  });
+
   return (
     <Container>
       <Title>DA-ARA</Title>
-      <SideBar>
+      <SideBar ref={el}>
         <Button
           onClick={() => {
             modal === true ? setModal(false) : setModal(true);

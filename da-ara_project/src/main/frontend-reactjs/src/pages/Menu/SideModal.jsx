@@ -1,22 +1,46 @@
+import { useState } from "react";
+import ReactDOM from "react-dom";
 import styled from "styled-components";
+import Modal from "../../components/Modal";
+import SignupPage from "../Login/SignupPage";
+import LoginPage from "../Login/LoginPage";
 
 const Box = styled.div`
   width: 250px;
-  height: 200px;
-  background-color: antiquewhite;
+  height: 100%;
+  background-color: blue;
   text-align: left;
-  margin: 10px;
-  padding: 15px;
+  padding: 0;
 `;
 
-function Modal() {
+function SideModal() {
+  const [modalShow, setModalShow] = useState(false);
+  const [modalContent, setModalContent] = useState(null);
+
+  const openModal = (content) => {
+    setModalContent(content);
+    setModalShow(true);
+  };
+
+  const closeModal = () => {
+    setModalShow(false);
+    setModalContent(null);
+  };
   return (
     <Box>
-      <h4>title</h4>
-      <p>contents</p>
-      <span>date</span>
+      <button onClick={() => openModal(<LoginPage closeModal={closeModal} />)}>
+        Open Login
+      </button>
+      <button onClick={() => openModal(<SignupPage closeModal={closeModal} />)}>
+        Open Signup
+      </button>
+      {modalShow &&
+        ReactDOM.createPortal(
+          <Modal closeModal={closeModal} content={modalContent} />,
+          document.getElementById("modal")
+        )}
     </Box>
   );
 }
 
-export default Modal;
+export default SideModal;

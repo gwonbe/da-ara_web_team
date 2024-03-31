@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ChatPage from "./pages/Chatting/ChatPage";
 import Header from "./components/Header";
+import Modal from "./components/Modal";
 
 const resize = () => {
   const vh = window.innerHeight * 0.01;
@@ -19,6 +20,7 @@ const routerList = [
   { path: "/login", element: <LoginPage /> },
   { path: "/signup", element: <SignupPage /> },
   { path: "/header", element: <Header /> },
+  { path: "/modal", element: <Modal /> },
 ];
 
 function App() {

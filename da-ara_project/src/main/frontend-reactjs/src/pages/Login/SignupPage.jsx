@@ -1,4 +1,15 @@
 import { useState } from "react";
+import styled from "styled-components";
+
+const ConForm = styled.form`
+  width: 100%;
+  min-height: calc(var(--vh) * 100);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+`;
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -23,7 +34,12 @@ const SignupPage = () => {
   };
 
   return (
-    <form action="" className="login-box" onSubmit={handleClick} method="post">
+    <ConForm
+      action=""
+      className="login-box"
+      onSubmit={handleClick}
+      method="post"
+    >
       <p>
         반가워요! 학번과 비밀번호를 <br />
         입력해주세요. 😀
@@ -50,7 +66,7 @@ const SignupPage = () => {
       {pwdErrorMsg && <p style={{ color: "yellow" }}>{pwdErrorMsg}</p>}
       <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
       <button>로그인 이동</button>
-    </form>
+    </ConForm>
   );
 };
 
