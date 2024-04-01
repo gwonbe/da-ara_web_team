@@ -49,7 +49,7 @@ const LoginPage = () => {
         <button
           type="submit"
           disabled={!(idValue && pwValue)}
-          onClick={() => navigate("/chatpage")}
+          //onClick={() => navigate("/chatpage")}
         >
           로그인
         </button>
