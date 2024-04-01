@@ -16,19 +16,20 @@ const LoginPage = () => {
   };
 
   const handleClick = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     console.log("학번:", idValue);
     console.log("비밀번호:", pwValue);
   };
 
   return (
     <form
-      action="daara/user/login-confirm"
+      action="/login-confirm"
       className="login-box"
       onSubmit={handleClick}
       method="post"
     >
       <input
+        name="uID"
         type="number"
         className="login_id"
         placeholder="학번을 입력하세요."
@@ -38,6 +39,7 @@ const LoginPage = () => {
       />
       <br />
       <input
+        name="uPW"
         className="login_pw"
         type="password"
         placeholder="비밀번호"
@@ -49,7 +51,7 @@ const LoginPage = () => {
         <button
           type="submit"
           disabled={!(idValue && pwValue)}
-          //onClick={() => navigate("/chatpage")}
+          //onClick={() => navigate("/login-confirm")}
         >
           로그인
         </button>
