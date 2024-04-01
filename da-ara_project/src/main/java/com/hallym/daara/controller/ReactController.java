@@ -60,7 +60,7 @@ public class ReactController implements WebMvcConfigurer{
         else System.out.println("# 로그인 실패");
         //return nextPage;
         //return "test";
-        response.sendRedirect("/chatpage");
+        response.sendRedirect("");
     }
 
 }
