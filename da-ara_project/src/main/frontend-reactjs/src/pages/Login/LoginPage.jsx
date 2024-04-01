@@ -14,19 +14,8 @@ const LoginPage = () => {
     setPwValue(event.target.value);
   };
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    console.log("학번:", idValue);
-    console.log("비밀번호:", pwValue);
-  };
-
   return (
-    <form
-      action="/login-confirm"
-      className="login-box"
-      onSubmit={handleClick}
-      method="post"
-    >
+    <form action="/login-confirm" className="login-box" method="post">
       <input
         name="uID"
         type="number"
