@@ -39,7 +39,7 @@ public class ReactController implements WebMvcConfigurer{
     }
 
     @PostMapping("/login-confirm")
-    public void loginConfirm(@RequestParam("uID") String uID, @RequestParam("uPW") String uPW, HttpServletRequest request){
+    public String loginConfirm(@RequestParam("uID") String uID, @RequestParam("uPW") String uPW, HttpServletRequest request){
         System.out.println("# [ReactController] loginConfirm()");
         String nextPage;
         UserEntity user = userService.loginConfirm(uID, uPW);
@@ -56,6 +56,7 @@ public class ReactController implements WebMvcConfigurer{
         if(nextPage.equals("home")) System.out.println("# 로그인 성공");
         else System.out.println("# 로그인 실패");
         //return nextPage;
+        return "test";
     }
 
 }
