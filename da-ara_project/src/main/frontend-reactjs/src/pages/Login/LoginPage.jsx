@@ -1,11 +1,10 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const saveUserId = (event) => {
     setIdValue(event.target.value);
@@ -16,7 +15,7 @@ const LoginPage = () => {
   };
 
   const handleClick = (event) => {
-    //event.preventDefault();
+    event.preventDefault();
     console.log("학번:", idValue);
     console.log("비밀번호:", pwValue);
   };
@@ -55,12 +54,6 @@ const LoginPage = () => {
         >
           로그인
         </button>
-      </div>
-      <div>
-        <p>아직 회원이 아니신가요?</p>
-        <Link to="/signup">
-          <button>회원가입 이동</button>
-        </Link>
       </div>
     </form>
   );
