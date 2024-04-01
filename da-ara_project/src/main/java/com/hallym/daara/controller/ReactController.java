@@ -1,5 +1,7 @@
 package com.hallym.daara.controller;
 
+import java.io.IOException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import com.hallym.daara.entity.UserEntity;
 import com.hallym.daara.service.UserService;
 
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 @Controller
@@ -39,7 +42,7 @@ public class ReactController implements WebMvcConfigurer{
     }
 
     @PostMapping("/login-confirm")
-    public String loginConfirm(@RequestParam("uID") String uID, @RequestParam("uPW") String uPW, HttpServletRequest request){
+    public void loginConfirm(@RequestParam("uID") String uID, @RequestParam("uPW") String uPW, HttpServletRequest request, HttpServletResponse response) throws IOException{
         System.out.println("# [ReactController] loginConfirm()");
         String nextPage;
         UserEntity user = userService.loginConfirm(uID, uPW);
@@ -56,7 +59,8 @@ public class ReactController implements WebMvcConfigurer{
         if(nextPage.equals("home")) System.out.println("# 로그인 성공");
         else System.out.println("# 로그인 실패");
         //return nextPage;
-        return "test";
+        //return "test";
+        response.sendRedirect("/chatpage");
     }
 
 }
