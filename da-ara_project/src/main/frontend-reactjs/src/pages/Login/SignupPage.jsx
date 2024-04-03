@@ -16,14 +16,8 @@ const SignupPage = () => {
     }
   };
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    console.log("학번:", username);
-    console.log("비밀번호:", password);
-  };
-
   return (
-    <form action="" className="login-box" onSubmit={handleClick} method="post">
+    <form action="" className="login-box" method="post">
       <p>
         반가워요! 학번과 비밀번호를 <br />
         입력해주세요. 😀
@@ -33,6 +27,7 @@ const SignupPage = () => {
           setUsername(e.target.value);
         }}
         placeholder="학번"
+        value={username}
         name="signup_id"
         type="number"
       ></input>
@@ -43,12 +38,14 @@ const SignupPage = () => {
           passwordCheck(e.target.value);
         }}
         placeholder="비밀번호"
+        value={password}
         type="password"
         name="signup_pwd"
       ></input>
       <br />
       {pwdErrorMsg && <p style={{ color: "yellow" }}>{pwdErrorMsg}</p>}
       <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
+      <button type="submit">회원가입 완료</button>
     </form>
   );
 };
