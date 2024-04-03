@@ -2,13 +2,28 @@
 // import styled from "styled-components";
 // import Modal from "../pages/Menu/SideModal";
 import SideBar from "../pages/Menu/SideBar";
+import styled from "styled-components";
+
+const Container = styled.div`
+  min-width: 360px;
+  position: fixed;
+  z-index: 50;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+`;
+
+const Title = styled.h1`
+  text-align: center;
+`;
 
 const Header = () => {
   return (
-    <div>
+    <Container>
       <SideBar />
-      <h1>DA-ARA</h1>
-    </div>
+      <Title>DA-ARA</Title>
+    </Container>
   );
 };
 

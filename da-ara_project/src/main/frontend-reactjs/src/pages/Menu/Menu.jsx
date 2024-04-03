@@ -38,7 +38,6 @@ const Menu = ({ isOpen, onCancel }) => {
   const handleModal2Cancel = () => setOpen2(false);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <div>메뉴</div>
       <button onClick={handleClickCancel}>닫기</button>
       <div>
         <button onClick={handleClick1}>로그인</button>
