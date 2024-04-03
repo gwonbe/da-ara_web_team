@@ -1,4 +1,4 @@
-package com.hallym.daara.controller;
+package com.hallym.daara;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;

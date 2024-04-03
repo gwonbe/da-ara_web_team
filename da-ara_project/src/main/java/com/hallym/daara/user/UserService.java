@@ -1,10 +1,7 @@
-package com.hallym.daara.service;
+package com.hallym.daara.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.hallym.daara.component.UserComponent;
-import com.hallym.daara.entity.UserEntity;
 
 @Service
 public class UserService {

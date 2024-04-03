@@ -1,4 +1,4 @@
-package com.hallym.daara.config;
+package com.hallym.daara;
 
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

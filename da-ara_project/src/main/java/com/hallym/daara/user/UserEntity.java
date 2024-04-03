@@ -1,4 +1,4 @@
-package com.hallym.daara.entity;
+package com.hallym.daara.user;
 
 public class UserEntity {
     
