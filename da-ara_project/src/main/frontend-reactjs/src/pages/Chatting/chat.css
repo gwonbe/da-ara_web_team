@@ -48,32 +48,35 @@
 }
 
 .chat-input {
+  min-width: 360px;
+  position: absolute;
   display: flex;
   width: 100%;
-  margin-top: 16px;
+  bottom: 0;
+  z-index: 10;
+  box-sizing: border-box;
+  padding: 10px;
 }
 
 .chat-input input {
-  display: flex;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  width: calc(100% - 65px);
+  height: 20px;
+  border-radius: 10px;
+  outline: none;
+}
+
+.chat-input input:focus {
   outline: none;
 }
 
 .chat-input button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  margin-left: 8px;
+  background-color: #f5f5ff;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.chat-input button:hover {
-  background-color: #0056b3;
+  border: none;
+  margin-left: 10px;
+  padding-top: 3px;
 }
 
 .clearfix::after {

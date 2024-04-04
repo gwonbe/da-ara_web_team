@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoSend } from "react-icons/io5";
 
 const ChatInput = ({ onsubmit }) => {
   const [inputValue, setInputValue] = useState("");
@@ -9,14 +10,16 @@ const ChatInput = ({ onsubmit }) => {
     setInputValue("");
   };
   return (
-    <form>
+    <form onSubmit={handleSubmit} className="chat-input">
       <input
         type="text"
         value={inputValue}
         onChange={(event) => setInputValue(event.target.value)}
         placeholder="질문을 입력해주세요."
       />
-      <button type="submit">보내기</button>
+      <button type="submit">
+        <IoSend size={35} color="black" />
+      </button>
     </form>
   );
 };

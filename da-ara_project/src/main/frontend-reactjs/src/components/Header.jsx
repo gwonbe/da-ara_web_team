@@ -10,6 +10,7 @@ const Container = styled.div`
   z-index: 50;
   width: 100%;
   background-color: white;
+  top: 0;
   padding: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
