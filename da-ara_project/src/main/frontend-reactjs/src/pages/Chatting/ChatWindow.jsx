@@ -1,11 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-import ChatPage from "./ChatPage";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
 const ChatWindow = () => {
-  const [message, setMassages] = useState([]);
+  const [messages, setMassages] = useState([]);
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
@@ -41,6 +40,9 @@ const ChatWindow = () => {
           />
         ))}
       </div>
+      <ChatInput onSubmit={handleSubmit} />
     </div>
   );
 };
+
+export default ChatWindow;

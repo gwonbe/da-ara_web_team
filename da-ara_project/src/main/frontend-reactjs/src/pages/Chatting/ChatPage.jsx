@@ -1,9 +1,15 @@
 // import Chatting from "./Chatting";
 import Header from "../../components/Header";
 import styled from "styled-components";
-import ChatInput from "./ChatInput";
 import "./chat.css";
+import ChatWindow from "./ChatWindow";
 const Container = styled.div`
+  min-width: 360px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+  min-height: 100%;
   background: #f5f5ff;
   min-height: calc(var(--vh) * 100);
   width: 100%;
@@ -13,7 +19,7 @@ const ChatPage = () => {
   return (
     <Container>
       <Header />
-      <ChatInput />
+      <ChatWindow />
     </Container>
   );
 };
