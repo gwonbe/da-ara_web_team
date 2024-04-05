@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { IoSend } from "react-icons/io5";
 
-const ChatInput = ({ onsubmit }) => {
+const ChatInput = ({ onSubmit }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onsubmit(inputValue);
+    onSubmit(inputValue);
     setInputValue("");
   };
+
   return (
     <form onSubmit={handleSubmit} className="chat-input">
       <input
