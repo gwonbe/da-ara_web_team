@@ -9,7 +9,6 @@ import org.json.simple.JSONObject;
 
 public class OpenAIApi {
     
-    @SuppressWarnings("unused")
     private static final String API_KEY = "";
 
     @SuppressWarnings("unchecked")
@@ -29,8 +28,9 @@ public class OpenAIApi {
         try{
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://api.openai.com/v1/engines/text-davinci-002/completions"))
+                .uri(URI.create("https://api.openai.com/v1/engines/code-cushman-001/completions"))
                 .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + API_KEY)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonBody.toString()))
                 .build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
