@@ -48,4 +48,20 @@ public class UserController{
         response.sendRedirect("");
     }
 
+    // 회원가입
+
+    @PostMapping("/signup-confirm")
+    public void signupConfirm(UserEntity user, HttpServletRequest request, HttpServletResponse response) throws IOException{
+        System.out.println("# [UserController] signupConfirm()");
+		int result = userService.signupConfirm(user);
+        System.out.println("# " + result);
+        /*
+		String nextPage;
+		if(result > 0) nextPage = "home";
+		else nextPage = "user/signup";
+		return nextPage;
+        */
+        response.sendRedirect("");
+    }
+
 }

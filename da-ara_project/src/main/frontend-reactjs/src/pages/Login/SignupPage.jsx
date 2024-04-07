@@ -90,7 +90,7 @@ const SignupPage = () => {
   ];
 
   return (
-    <form action="" className="login-box" method="post">
+    <form action="/signup-confirm" className="login-box" method="post">
       <p>
         반가워요! 성명,학번, 비밀번호를 <br />
         입력해주세요. 😀
@@ -101,7 +101,7 @@ const SignupPage = () => {
         }}
         placeholder="성명"
         value={username}
-        name="signup_name"
+        name="uName"
         type="text"
       ></input>
       <input
@@ -110,7 +110,7 @@ const SignupPage = () => {
         }}
         placeholder="학번"
         value={usernumber}
-        name="signup_id"
+        name="uID"
         type="text"
       ></input>
       <br />
@@ -122,12 +122,12 @@ const SignupPage = () => {
         placeholder="비밀번호"
         value={password}
         type="password"
-        name="signup_pwd"
+        name="uPW"
       ></input>
       <br />
       {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
       <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
-      <Select options={options} placeholder="학과를 입력(선택)해주세요..." />
+      <Select options={options} placeholder="학과를 입력(선택)해주세요..." name="uMajor" />
       <button type="submit" disabled={!(username && password && usernumber)}>
         회원가입 완료
       </button>
