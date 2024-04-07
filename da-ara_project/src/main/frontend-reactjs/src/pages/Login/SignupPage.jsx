@@ -2,6 +2,7 @@ import { useState } from "react";
 import Select from "react-select";
 
 const SignupPage = () => {
+  const [usernumber, setUsernumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [pwdErrorMsg, setPwdErrorMsg] = useState("");
@@ -11,9 +12,9 @@ const SignupPage = () => {
 
   const passwordCheck = (password) => {
     if (password.match(passwordNumber) === null) {
-      setPwdErrorMsg("비밀번호 규정에 맞춰 입력해주세요😊");
+      setPwdErrorMsg("비밀번호 규정에 맞춰 입력해주세요");
     } else {
-      setPwdErrorMsg("");
+      setPwdErrorMsg("비밀번호 규정에 맞게 입력하셨습니다😊");
     }
   };
   const options = [
@@ -91,17 +92,26 @@ const SignupPage = () => {
   return (
     <form action="" className="login-box" method="post">
       <p>
-        반가워요! 학번과 비밀번호를 <br />
+        반가워요! 성명,학번, 비밀번호를 <br />
         입력해주세요. 😀
       </p>
       <input
         onChange={(e) => {
           setUsername(e.target.value);
         }}
-        placeholder="학번"
+        placeholder="성명"
         value={username}
+        name="signup_name"
+        type="text"
+      ></input>
+      <input
+        onChange={(e) => {
+          setUsernumber(e.target.value);
+        }}
+        placeholder="학번"
+        value={usernumber}
         name="signup_id"
-        type="number"
+        type="text"
       ></input>
       <br />
       <input
@@ -115,7 +125,7 @@ const SignupPage = () => {
         name="signup_pwd"
       ></input>
       <br />
-      {pwdErrorMsg && <p style={{ color: "red" }}>{pwdErrorMsg}</p>}
+      {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
       <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
       <Select options={options} placeholder="학과를 입력(선택)해주세요..." />
       <button type="submit">회원가입 완료</button>
