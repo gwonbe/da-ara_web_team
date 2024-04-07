@@ -8,8 +8,8 @@ const MyModal1 = ({ isOpen, onCancel }) => {
       backgroundColor: "#00000070",
     },
     content: {
-      height: "200px",
-      width: "800px",
+      height: "300px",
+      width: "300px",
       inset: "unset",
       margin: "50vh auto",
       padding: 0,
