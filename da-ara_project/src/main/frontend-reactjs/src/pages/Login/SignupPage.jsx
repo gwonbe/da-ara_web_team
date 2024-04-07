@@ -125,7 +125,7 @@ const SignupPage = () => {
         name="signup_pwd"
       ></input>
       <br />
-      {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
+      {pwdErrorMsg && <p style={{ color: "red" }}>{pwdErrorMsg}</p>}
       <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
       <Select options={options} placeholder="학과를 입력(선택)해주세요..." />
       <button type="submit">회원가입 완료</button>
