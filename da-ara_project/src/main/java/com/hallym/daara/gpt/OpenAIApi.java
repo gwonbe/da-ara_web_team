@@ -15,6 +15,8 @@ public class OpenAIApi {
     @SuppressWarnings("unchecked")
     public String ask(String prompt){
 
+        System.out.println("# [OpenAIApi] ask()");
+
         String responseBody = "";
         String formattedPrompt = String.format("다음 질문에 대답해주세요. 또한 답변은 한국어로 해주세요 : %s", prompt);
         
@@ -42,6 +44,8 @@ public class OpenAIApi {
     }
 
     private String extractAnswer(String responseJson){
+
+        System.out.println("# [OpenAIApi] extractAnswer()");
 
         JSONObject jsonObject = new JSONObject();
 

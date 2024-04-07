@@ -12,11 +12,13 @@ public class GptController {
     private final GptService gptService;
 
     public GptController(GptService gptService){
+        System.out.println("# [GptController] GptController()");
         this.gptService = gptService;
     }
 
     @PostMapping("/ask")
     public String ask(@RequestBody String prompt){
+        System.out.println("# [GptController] ask()");
         return gptService.ask(prompt);
     }
 
