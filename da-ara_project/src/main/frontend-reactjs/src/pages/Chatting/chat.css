@@ -5,6 +5,15 @@
   height: 100vh;
   background-color: aliceblue;
 }
+.chat-character {
+  position: absolute;
+  outline: none;
+  border: 0;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  z-index: 1;
+}
 
 .chat-window {
   display: flex;
@@ -22,6 +31,9 @@
   overflow-y: scroll;
   flex: 1;
   padding: 8px;
+  position: relative;
+  top: 300px;
+  z-index: 0;
 }
 
 .chat-messages {
