@@ -31,6 +31,7 @@ const ChatWindow = () => {
     }
   };
 
+  // 자바 실행 시 동영상 경로 : "../video/character.mp4"
   return (
     <div className="chat-window">
       <video
