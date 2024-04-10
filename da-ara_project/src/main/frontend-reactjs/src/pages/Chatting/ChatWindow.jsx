@@ -33,6 +33,17 @@ const ChatWindow = () => {
 
   return (
     <div className="chat-window">
+      <video
+        autoPlay
+        loop
+        muted
+        width="100%"
+        height="200px"
+        className="chat-character"
+      >
+        <source src="../../../public/video/character.mp4" type="video/mp4" />
+      </video>
+
       <div className="chat-messages">
         {messages.map((message, index) => (
           <ChatMessage
