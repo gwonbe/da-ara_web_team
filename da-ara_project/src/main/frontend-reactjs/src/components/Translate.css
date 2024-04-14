@@ -13,3 +13,17 @@ body {
 .skiptranslate {
   display: none;
 }
+.dropdown-content button {
+  cursor: pointer;
+  margin-top: 7px;
+  border: none;
+  width: 150px;
+  background-color: #f3ecf5;
+  padding: 5px 5px;
+  border-radius: 5px;
+}
+
+.dropdown-content button:hover {
+  width: 160px;
+  transition: 0.2s;
+}
