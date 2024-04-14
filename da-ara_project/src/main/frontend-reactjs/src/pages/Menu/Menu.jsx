@@ -2,7 +2,40 @@ import Modal from "react-modal";
 import MyModal1 from "./MyModal1";
 import MyModal2 from "./MyModal2";
 import { useState } from "react";
+import { FaXmark } from "react-icons/fa6";
+import styled from "styled-components";
+import Translate from "../../components/Translate";
 
+const Button = styled.button`
+  padding-top: 5px;
+  padding-right: 5px;
+  border: 0;
+  background-color: transparent;
+  float: right;
+  cursor: pointer;
+  box-sizing: content-box;
+`;
+const Ul = styled.ul`
+  text-align: center;
+  margin-top: 50px;
+  padding: 0;
+`;
+const Li = styled.li`
+  font-weight: bold;
+  display: inline-block;
+  width: 180px;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
+  border: 3px solid #ecbeff;
+  border-radius: 7px;
+  cursor: pointer;
+  &:hover {
+    background-color: #ecbeff;
+    transition: 0.2s;
+    color: white;
+  }
+`;
 const Menu = ({ isOpen, onCancel }) => {
   const customStyles = {
     overlay: {
@@ -38,13 +71,18 @@ const Menu = ({ isOpen, onCancel }) => {
   const handleModal2Cancel = () => setOpen2(false);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <button onClick={handleClickCancel}>닫기</button>
-      <div>
-        <button onClick={handleClick1}>로그인</button>
-        <button onClick={handleClick2}>회원가입</button>
+      <Button onClick={handleClickCancel}>
+        <FaXmark size="30" />
+      </Button>
+      <Ul>
+        <Li onClick={handleClick1}>로그인</Li>
+        <Li onClick={handleClick2}>회원가입</Li>
+        <Li>
+          <Translate />
+        </Li>
         <MyModal1 isOpen={isOpen1} onCancel={handleModal1Cancel} />
         <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
-      </div>
+      </Ul>
     </Modal>
   );
 };

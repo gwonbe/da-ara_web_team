@@ -1,8 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./Translate.css";
+import styled from "styled-components";
+
+const Button = styled.button`
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: content-box;
+  font-weight: bold;
+  &:hover {
+    background-color: #ecbeff;
+    transition: 0.2s;
+    color: white;
+  }
+`;
 
 const Translate = () => {
-  // Define doGTranslate function outside of the useEffect hook
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 버튼 리스트의 표시 여부 상태
+
   function doGTranslate(a, b) {
     var c = document.getElementById("google_translate_element2");
     if (b === "") return;
@@ -49,19 +64,28 @@ const Translate = () => {
     window.googleTranslateElementInit = googleTranslateElementInit2;
   }, []);
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen); // 버튼 리스트의 표시 여부를 토글
+  };
+
+  const handleLanguageChange = (language) => {
+    doGTranslate(`ko|${language}`);
+  };
+
   return (
-    <>
-      <button onClick={() => doGTranslate("ko|ko")} className="gflag nturl">
-        한국어
-      </button>
-      <button onClick={() => doGTranslate("ko|en")} className="gflag nturl">
-        영어
-      </button>
-      <button onClick={() => doGTranslate("ko|zh-CN")} className="gflag nturl">
-        중국어
-      </button>
+    <div>
+      <Button onClick={toggleDropdown}>언어변경▼</Button>
+      {isDropdownOpen && (
+        <div className="dropdown-content">
+          <button onClick={() => handleLanguageChange("ko")}>한국어</button>{" "}
+          <br />
+          <button onClick={() => handleLanguageChange("en")}>영어</button>{" "}
+          <br />
+          <button onClick={() => handleLanguageChange("zh-CN")}>중국어</button>
+        </div>
+      )}
       <div id="google_translate_element2"></div>
-    </>
+    </div>
   );
 };
 

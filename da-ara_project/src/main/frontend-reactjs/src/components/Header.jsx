@@ -3,7 +3,6 @@
 // import Modal from "../pages/Menu/SideModal";
 import SideBar from "../pages/Menu/SideBar";
 import styled from "styled-components";
-import Translate from "./Translate";
 
 const Container = styled.div`
   min-width: 360px;
@@ -25,7 +24,6 @@ const Header = () => {
     <Container>
       <SideBar />
       <Title>DA-ARA</Title>
-      <Translate />
     </Container>
   );
 };
