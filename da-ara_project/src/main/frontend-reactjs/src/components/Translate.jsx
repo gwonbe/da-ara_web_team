@@ -19,7 +19,6 @@ const Translate = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 버튼 리스트의 표시 여부 상태
 
   function doGTranslate(a, b) {
-    var c = document.getElementById("google_translate_element2");
     if (b === "") return;
     var d = a.split("|")[1];
     var e;

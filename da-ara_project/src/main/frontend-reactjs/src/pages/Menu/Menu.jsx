@@ -1,4 +1,5 @@
 import Modal from "react-modal";
+import PropTypes from "prop-types";
 import MyModal1 from "./MyModal1";
 import MyModal2 from "./MyModal2";
 import { useState } from "react";
@@ -6,6 +7,10 @@ import { FaXmark } from "react-icons/fa6";
 import styled from "styled-components";
 import Translate from "../../components/Translate";
 
+const MenuHead = styled.div`
+  height: 45px;
+  background-color: #ecbeff;
+`;
 const Button = styled.button`
   padding-top: 5px;
   padding-right: 5px;
@@ -17,7 +22,7 @@ const Button = styled.button`
 `;
 const Ul = styled.ul`
   text-align: center;
-  margin-top: 50px;
+  margin-top: 30px;
   padding: 0;
 `;
 const Li = styled.li`
@@ -71,9 +76,12 @@ const Menu = ({ isOpen, onCancel }) => {
   const handleModal2Cancel = () => setOpen2(false);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <Button onClick={handleClickCancel}>
-        <FaXmark size="30" />
-      </Button>
+      <MenuHead>
+        <Button onClick={handleClickCancel}>
+          <FaXmark size="30" />
+        </Button>
+      </MenuHead>
+
       <Ul>
         <Li onClick={handleClick1}>로그인</Li>
         <Li onClick={handleClick2}>회원가입</Li>
@@ -85,6 +93,11 @@ const Menu = ({ isOpen, onCancel }) => {
       </Ul>
     </Modal>
   );
+};
+
+Menu.propTypes = {
+  isOpen: PropTypes.bool.isRequired, // isOpen에 대한 prop 유효성 검사를 추가합니다.
+  onCancel: PropTypes.func.isRequired, // onCancel에 대한 prop 유효성 검사를 추가합니다.
 };
 
 export default Menu;
