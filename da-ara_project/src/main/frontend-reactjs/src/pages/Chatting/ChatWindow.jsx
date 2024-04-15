@@ -31,7 +31,9 @@ const ChatWindow = () => {
     }
   };
 
-  // 자바 실행 시 동영상 경로 : "../video/character.mp4"
+  // 동영상 경로
+  // - 자바 : "../video/character.mp4"
+  // - 리액트 : "../../../public/video/character.mp4"
   return (
     <div className="chat-window">
       <video
@@ -42,7 +44,7 @@ const ChatWindow = () => {
         height="200px"
         className="chat-character"
       >
-        <source src="../../../public/video/character.mp4" type="video/mp4" />
+        <source src="../video/character.mp4" type="video/mp4" />
       </video>
 
       <div className="chat-messages">
