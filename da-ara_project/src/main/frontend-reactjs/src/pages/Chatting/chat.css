@@ -25,6 +25,7 @@
 }
 
 .chat-messages {
+  height: 300px;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -32,12 +33,12 @@
   flex: 1;
   padding: 8px;
   position: relative;
-  top: 300px;
+  top: 210px;
   z-index: 0;
 }
 
-.chat-messages {
-  margin-bottom: 8px;
+.chat-messages::-webkit-scrollbar {
+  display: none;
 }
 
 .user-message {
