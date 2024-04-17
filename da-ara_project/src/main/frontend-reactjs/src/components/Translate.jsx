@@ -78,9 +78,11 @@ const Translate = () => {
         <div className="dropdown-content">
           <button onClick={() => handleLanguageChange("ko")}>한국어</button>{" "}
           <br />
-          <button onClick={() => handleLanguageChange("en")}>영어</button>{" "}
+          <button onClick={() => handleLanguageChange("en")}>
+            English
+          </button>{" "}
           <br />
-          <button onClick={() => handleLanguageChange("zh-CN")}>중국어</button>
+          <button onClick={() => handleLanguageChange("zh-CN")}>中国人</button>
         </div>
       )}
       <div id="google_translate_element2"></div>
