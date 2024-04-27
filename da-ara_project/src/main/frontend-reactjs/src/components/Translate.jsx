@@ -9,9 +9,8 @@ const Button = styled.button`
   box-sizing: content-box;
   font-weight: bold;
   &:hover {
-    background-color: #ecbeff;
+    background-color: #E0C6E9
     transition: 0.2s;
-    color: white;
   }
 `;
 
