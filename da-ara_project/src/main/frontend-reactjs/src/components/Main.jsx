@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 100%;
   min-height: calc(var(--vh) * 100);
-  background-color: #dfefff;
+  background-color: #f3f2fd;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -12,30 +12,38 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Logoimg = styled.img`
-  width: 200px;
-  height: 200px;
+const Logovideo = styled.video`
+  height: 40vh;
   margin-bottom: 20px;
 `;
 
 const Ebutton = styled.button`
-  background-color: #093555;
-  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  background-color: #e0c6e9;
   width: 200px;
   height: 50px;
   border: none;
   border-radius: 10px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
+// 동영상 경로
+// - 자바 : "../video/hellochar.mp4"
+// - 리액트 : "../../../public/video/hellochar.mp4"
 
 function MainPage() {
   const navigate = useNavigate();
   return (
     <Container>
-      <Logoimg src="src\assets\images\심신안정용.jpg" alt="" />
-      <Ebutton onClick={() => navigate("/login")}>로그인하러 가기</Ebutton>
-      <br />
-      <Ebutton onClick={() => navigate("/chatpage")}> 채팅 시작하기 </Ebutton>
+      <Logovideo autoPlay loop muted>
+        <source src="/video/hellochar.mp4" type="video/mp4" />
+      </Logovideo>
+      <div>
+        <Ebutton onClick={() => navigate("/login")}>로그인하러 가기</Ebutton>
+        <br />
+        <Ebutton onClick={() => navigate("/chatpage")}> 채팅 시작하기 </Ebutton>
+      </div>
     </Container>
   );
 }

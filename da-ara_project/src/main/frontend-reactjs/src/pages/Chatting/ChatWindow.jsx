@@ -44,7 +44,7 @@ const ChatWindow = () => {
         height="280px"
         className="chat-character"
       >
-        <source src="../../../public/video/newchar1.mp4" type="video/mp4" />
+        <source src="/video/newchar1.mp4" type="video/mp4" />
       </video>
 
       <div className="chat-messages">
