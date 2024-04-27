@@ -9,7 +9,7 @@ import Translate from "../../components/Translate";
 
 const MenuHead = styled.div`
   height: 45px;
-  background-color: #ecbeff;
+  background-color: #e0c6e9;
 `;
 const Button = styled.button`
   padding-top: 5px;
@@ -32,13 +32,12 @@ const Li = styled.li`
   list-style: none;
   margin: 5px 0px;
   padding: 5px 0px;
-  border: 3px solid #ecbeff;
+  border: 3px solid #e0c6e9;
   border-radius: 7px;
   cursor: pointer;
   &:hover {
-    background-color: #ecbeff;
+    background-color: #e0c6e9;
     transition: 0.2s;
-    color: white;
   }
 `;
 const Menu = ({ isOpen, onCancel }) => {
