@@ -32,7 +32,8 @@ public class UserController{
         String nextPage;
         UserEntity user = userService.loginConfirm(uID, uPW);
         if(user != null){
-            System.out.println(String.format("# uID : %s , uPW : %s", uID, uPW));
+            //System.out.println(String.format("# uID : %s , uPW : %s", uID, uPW));
+            user.printUser();
             nextPage = "home";
             HttpSession session = request.getSession();
             session.setAttribute("uID", uID);

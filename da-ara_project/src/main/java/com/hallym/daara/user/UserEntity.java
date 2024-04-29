@@ -40,5 +40,11 @@ public class UserEntity {
     public void setuDoubleMajor(String uDoubleMajor) {
         this.uDoubleMajor = uDoubleMajor;
     }
+
+    // method
+
+    public void printUser(){
+        System.out.println(String.format("# uID : %s , uPW : %s , uName : %s , uMajor : %s , uDoubleMajor : %s", uID, uPW, uName, uMajor, uDoubleMajor));
+    }
     
 }
