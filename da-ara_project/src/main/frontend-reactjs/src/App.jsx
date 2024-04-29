@@ -47,9 +47,10 @@ function App() {
           ))}
         </Routes>
       </Router>
-      받아온 값 :{data}
+     
     </div>
   );
 }
+// 받아온 값 :{`아이디 : ${data[0]}, 비밀번호 : ${data[1]}, 이름 : ${data[2]}, 전공 : ${data[3]}, 복수전공 : ${data[4]}`}
 
 export default App;
