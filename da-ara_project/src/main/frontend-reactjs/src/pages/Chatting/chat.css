@@ -9,8 +9,8 @@
   position: absolute;
   outline: none;
   border: 0;
-  -webkit-mask-image: -webkit-radial-gradient(white, black);
-  -webkit-backface-visibility: hidden;
+  mask-image: -webkit-radial-gradient(white, black);
+  backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   z-index: 1;
 }
@@ -64,6 +64,7 @@
   display: flex;
   width: 100%;
   bottom: 0;
+  margin-bottom: 10px;
   z-index: 10;
   box-sizing: border-box;
   padding: 10px;
