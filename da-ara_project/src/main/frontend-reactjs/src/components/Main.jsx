@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const Logovideo = styled.video`
-  height: 40vh;
+  width: 100%;
   margin-bottom: 20px;
   mask-image: -webkit-radial-gradient(white, black);
   backface-visibility: hidden;

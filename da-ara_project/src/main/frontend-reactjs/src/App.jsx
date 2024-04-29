@@ -3,8 +3,7 @@ import "./App.css";
 import LoginPage from "./pages/Login/LoginPage";
 import Main from "./components/Main";
 import SignupPage from "./pages/Login/SignupPage";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import ChatPage from "./pages/Chatting/ChatPage";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
@@ -24,15 +23,6 @@ const routerList = [
 ];
 
 function App() {
-  const [data, setData] = useState("");
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:8080/daara")
-      .then((res) => setData(res.data))
-      .catch((err) => console.log(err));
-  }, []);
-
   useEffect(() => {
     resize();
     window.addEventListener("resize", resize);
@@ -47,10 +37,8 @@ function App() {
           ))}
         </Routes>
       </Router>
-     
     </div>
   );
 }
-// 받아온 값 :{`아이디 : ${data[0]}, 비밀번호 : ${data[1]}, 이름 : ${data[2]}, 전공 : ${data[3]}, 복수전공 : ${data[4]}`}
 
 export default App;
