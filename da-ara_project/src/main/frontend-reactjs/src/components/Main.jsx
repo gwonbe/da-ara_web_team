@@ -15,11 +15,14 @@ const Container = styled.div`
 `;
 
 const Logovideo = styled.video`
-  width: 100%;
+  width: 50%;
   margin-bottom: 20px;
   mask-image: -webkit-radial-gradient(white, black);
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Ebutton = styled.button`
