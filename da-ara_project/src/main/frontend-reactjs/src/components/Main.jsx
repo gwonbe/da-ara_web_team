@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
+import MyModal1 from "../pages/Menu/MyModal1";
 
 const Container = styled.div`
   width: 100%;
@@ -15,6 +17,9 @@ const Container = styled.div`
 const Logovideo = styled.video`
   height: 40vh;
   margin-bottom: 20px;
+  mask-image: -webkit-radial-gradient(white, black);
+  backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
 `;
 
 const Ebutton = styled.button`
@@ -28,22 +33,32 @@ const Ebutton = styled.button`
   margin-bottom: 10px;
   cursor: pointer;
 `;
-// 동영상 경로
-// - 자바 : "../video/hellochar.mp4"
-// - 리액트 : "../../../public/video/hellochar.mp4"
 
 function MainPage() {
   const navigate = useNavigate();
+  const [isOpen1, setOpen1] = useState(false);
+  const handleClick1 = () => {
+    setOpen1(true);
+  };
+  const handleModal1Submit = () => {
+    setOpen1(false);
+  };
+  const handleModal1Cancel = () => setOpen1(false);
   return (
     <Container>
       <Logovideo autoPlay loop muted>
         <source src="/video/hellochar.mp4" type="video/mp4" />
       </Logovideo>
       <div>
-        <Ebutton onClick={() => navigate("/login")}>로그인하러 가기</Ebutton>
+        <Ebutton onClick={handleClick1}>로그인하러 가기</Ebutton>
         <br />
         <Ebutton onClick={() => navigate("/chatpage")}> 채팅 시작하기 </Ebutton>
       </div>
+      <MyModal1
+        isOpen={isOpen1}
+        onSubmit={handleModal1Submit}
+        onCancel={handleModal1Cancel}
+      />
     </Container>
   );
 }
