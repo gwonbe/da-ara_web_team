@@ -15,11 +15,14 @@ const Container = styled.div`
 `;
 
 const Logovideo = styled.video`
-  width: 100%;
+  width: 50%;
   margin-bottom: 20px;
   mask-image: -webkit-radial-gradient(white, black);
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 const Ebutton = styled.button`
@@ -50,7 +53,7 @@ function MainPage() {
         <source src="/video/hellochar.mp4" type="video/mp4" />
       </Logovideo>
       <div>
-        <Ebutton onClick={handleClick1}>로그인하러 가기</Ebutton>
+        <Ebutton onClick={handleClick1}>로그인</Ebutton>
         <br />
         <Ebutton onClick={() => navigate("/chatpage")}> 채팅 시작하기 </Ebutton>
       </div>

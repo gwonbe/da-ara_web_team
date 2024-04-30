@@ -1,5 +1,59 @@
 import { useState } from "react";
 import Select from "react-select";
+import styled from "styled-components";
+
+const Form = styled.div`
+  width: 100%;
+  margin: auto;
+  background-color: #f3f2fd;
+  border-radius: 11px;
+`;
+const Loginform = styled.form`
+  display: grid;
+  row-gap: 16px;
+`;
+
+const H2 = styled.h2`
+  padding: 15px;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+`;
+const ButtonForm = styled.div`
+  background: #f3f2fd;
+  color: white;
+  align-self: end;
+  padding: 8px;
+`;
+const Button = styled.button`
+  background-color: #d6d4f2;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  margin: 0 2px;
+  padding: 10px 24px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: #7586ff;
+    color: white;
+  }
+`;
+const Label = styled.label`
+  display: block;
+`;
+const Input = styled.input`
+  width: 100%;
+  padding: 1.2rem;
+  border-radius: 9px;
+  border: none;
+  &:foucus {
+    outline: none;
+  }
+`;
 
 const SignupPage = () => {
   const [usernumber, setUsernumber] = useState("");
@@ -90,48 +144,57 @@ const SignupPage = () => {
   ];
 
   return (
-    <form action="/signup-confirm" className="login-box" method="post">
-      <p>
-        반가워요! 성명,학번, 비밀번호를 <br />
-        입력해주세요. 😀
-      </p>
-      <input
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-        placeholder="성명"
-        value={username}
-        name="uName"
-        type="text"
-      ></input>
-      <input
-        onChange={(e) => {
-          setUsernumber(e.target.value);
-        }}
-        placeholder="학번"
-        value={usernumber}
-        name="uID"
-        type="text"
-      ></input>
-      <br />
-      <input
-        onChange={(e) => {
-          setPassword(e.target.value);
-          passwordCheck(e.target.value);
-        }}
-        placeholder="비밀번호"
-        value={password}
-        type="password"
-        name="uPW"
-      ></input>
-      <br />
-      {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
-      <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
-      <Select options={options} placeholder="학과를 입력(선택)해주세요..." name="uMajor" />
-      <button type="submit" disabled={!(username && password && usernumber)}>
-        회원가입 완료
-      </button>
-    </form>
+    <Form>
+      <Loginform action="/signup-confirm" method="post">
+        <H2>회원가입</H2>
+        <Label>성명</Label>
+        <Input
+          onChange={(e) => {
+            setUsername(e.target.value);
+          }}
+          placeholder="성명"
+          value={username}
+          name="uName"
+          type="text"
+        ></Input>
+        <Label>학번</Label>
+        <Input
+          onChange={(e) => {
+            setUsernumber(e.target.value);
+          }}
+          placeholder="학번"
+          value={usernumber}
+          name="uID"
+          type="text"
+        ></Input>
+        <Label>비밀번호</Label>
+        <Input
+          onChange={(e) => {
+            setPassword(e.target.value);
+            passwordCheck(e.target.value);
+          }}
+          placeholder="비밀번호"
+          value={password}
+          type="password"
+          name="uPW"
+        ></Input>
+        {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
+        <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
+        <Select
+          options={options}
+          placeholder="학과를 입력(선택)해주세요..."
+          name="uMajor"
+        />
+        <ButtonForm>
+          <Button
+            type="submit"
+            disabled={!(username && password && usernumber)}
+          >
+            회원가입
+          </Button>
+        </ButtonForm>
+      </Loginform>
+    </Form>
   );
 };
 
