@@ -53,7 +53,7 @@ function MainPage() {
         <source src="/video/hellochar.mp4" type="video/mp4" />
       </Logovideo>
       <div>
-        <Ebutton onClick={handleClick1}>로그인하러 가기</Ebutton>
+        <Ebutton onClick={handleClick1}>로그인</Ebutton>
         <br />
         <Ebutton onClick={() => navigate("/chatpage")}> 채팅 시작하기 </Ebutton>
       </div>
