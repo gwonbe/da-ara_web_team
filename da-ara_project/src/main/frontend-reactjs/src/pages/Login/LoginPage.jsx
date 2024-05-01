@@ -73,7 +73,7 @@ const LoginPage = () => {
       <Loginform action="/login-confirm" className="login-box" method="post">
         <Label htmlFor="name">학번 </Label>
         <Input
-          name="username"
+          name="uID"
           type="number"
           id="username"
           placeholder="학번을 입력하세요."
@@ -84,7 +84,7 @@ const LoginPage = () => {
         />
         <Label htmlFor="password">비밀번호 </Label>
         <Input
-          name="password"
+          name="uPW"
           type="password"
           placeholder="비밀번호"
           value={pwValue}

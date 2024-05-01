@@ -2,7 +2,7 @@ import PropTypes from "prop-types"; // PropTypes를 임포트합니다.
 import Modal from "react-modal";
 import LoginPage from "../Login/LoginPage";
 
-const MyModal1 = ({ isOpen, onCancel }) => {
+const MyModal1 = ({ isOpen, onCancel, onLoginSuccess }) => {
   const customStyles = {
     overlay: {
       zIndex: 1000,
@@ -23,13 +23,25 @@ const MyModal1 = ({ isOpen, onCancel }) => {
     onCancel();
   };
 
+  const handleLoginSuccess = (userData) => {
+    onLoginSuccess(userData);
+    onCancel();
+  };
+
   return (
-    <Modal isOpen={isOpen} style={customStyles}>
+    <Modal
+      isOpen={isOpen}
+      style={customStyles}
+      onRequestClose={handleClickCancel}
+      ariaHideApp={false}
+    >
       <div>
-        <LoginPage />
+        <LoginPage onLoginSuccess={handleLoginSuccess} />
       </div>
       <div>
-        <button onClick={handleClickCancel}>닫기</button>
+        <button onClick={handleClickCancel} aria-label="Close modal">
+          닫기
+        </button>
       </div>
     </Modal>
   );

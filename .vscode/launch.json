@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-DaaraApplication<daara>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.hallym.daara.DaaraApplication",
+      "projectName": "daara",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

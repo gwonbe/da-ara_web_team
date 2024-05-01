@@ -40,6 +40,7 @@ const Li = styled.li`
     transition: 0.2s;
   }
 `;
+
 const Menu = ({ isOpen, onCancel }) => {
   const customStyles = {
     overlay: {
@@ -58,45 +59,57 @@ const Menu = ({ isOpen, onCancel }) => {
     },
   };
 
-  const handleClickCancel = () => {
-    onCancel();
-  };
-
   const [isOpen1, setOpen1] = useState(false);
   const [isOpen2, setOpen2] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
 
-  const handleClick1 = () => {
-    setOpen1(true);
+  const handleLoginSuccess = (userData) => {
+    console.log("Login successful with user data:", userData);
+    setIsLoggedIn(true);
+    setUserInfo(userData);
+    setOpen1(false); // Close the login modal on successful login
   };
-  const handleClick2 = () => {
-    setOpen2(true);
-  };
+
   const handleModal1Cancel = () => setOpen1(false);
   const handleModal2Cancel = () => setOpen2(false);
+
   return (
     <Modal isOpen={isOpen} style={customStyles}>
       <MenuHead>
-        <Button onClick={handleClickCancel}>
+        <Button onClick={onCancel}>
           <FaXmark size="30" />
         </Button>
       </MenuHead>
-
-      <Ul>
-        <Li onClick={handleClick1}>로그인</Li>
-        <Li onClick={handleClick2}>회원가입</Li>
-        <Li>
-          <Translate />
-        </Li>
-        <MyModal1 isOpen={isOpen1} onCancel={handleModal1Cancel} />
-        <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
-      </Ul>
+      {!isLoggedIn ? (
+        <Ul>
+          <Li onClick={() => setOpen1(true)}>로그인</Li>
+          <Li onClick={() => setOpen2(true)}>회원가입</Li>
+          <Li>
+            <Translate />
+          </Li>
+        </Ul>
+      ) : (
+        <Ul>
+          <Li>환영합니다!{userInfo}</Li>
+          <Li>
+            <Translate />
+          </Li>
+        </Ul>
+      )}
+      <MyModal1
+        isOpen={isOpen1}
+        onCancel={handleModal1Cancel}
+        onLoginSuccess={handleLoginSuccess}
+      />
+      <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
     </Modal>
   );
 };
 
 Menu.propTypes = {
-  isOpen: PropTypes.bool.isRequired, // isOpen에 대한 prop 유효성 검사를 추가합니다.
-  onCancel: PropTypes.func.isRequired, // onCancel에 대한 prop 유효성 검사를 추가합니다.
+  isOpen: PropTypes.bool.isRequired,
+  onCancel: PropTypes.func.isRequired,
 };
 
 export default Menu;
