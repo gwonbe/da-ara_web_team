@@ -3,7 +3,6 @@ const LogoutPage = () => {
     <form action="/logout-confirm" method="get">
       <h2>로그아웃</h2>
       <p>로그아웃 하시겠습니까?</p>
-      <button>취소</button>
       <button type="submit">로그아웃</button>
     </form>
   );
