@@ -27,7 +27,7 @@ const MyModal2 = ({ isOpen, onCancel }) => {
     <Modal isOpen={isOpen} style={customStyles}>
       <SignupPage />
       <div>
-        <button onClick={handleClickCancel}>닫기</button>
+        <button onClick={handleClickCancel}>돌아가기</button>
       </div>
     </Modal>
   );
