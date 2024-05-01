@@ -40,9 +40,6 @@ const Chatting = () => {
   const [userInput, setUserInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const apiKey = "";
-  const apiEndpoint = "https://api.openai.com/v1/chat/completions";
-
   const addMessage = (sender, message) => {
     setMessages((prevMessages) => [...prevMessages, { sender, message }]);
   };
@@ -51,37 +48,28 @@ const Chatting = () => {
     const message = userInput.trim();
     if (message.length === 0) return;
 
-    addMessage("user", message);
-    setUserInput("");
-    setLoading(true);
+    addMessage("user", message); // 사용자 메시지 추가
+    setUserInput(""); // 입력 필드 초기화
+    setLoading(true); // 로딩 상태 활성화
 
     try {
-      const response = await fetch(apiEndpoint, {
+      // 사용자 정의 API 요청
+      const response = await fetch("http://127.0.0.1:5000/api/data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
         },
-        body: JSON.stringify({
-          model: "gpt-3.5-turbo",
-          messages: [{ role: "user", content: message }],
-          max_tokens: 1024, // 답변 최대 글자 수,
-          top_p: 1, // 다음 단어를 선택할 때 상위 p%의 확률 분포를 사용하는 매개변수, 높을수록 안정된 선택
-          temperature: 1, // 답변의 다양성과 창의성, 낮을수록 일관적 (0~2)
-          frequency_penalty: 0.5, // 전문적 단어의 빈도, 낮을수록 전문적 (0~1)
-          presence_penalty: 0.5, // 반복되는 구문 억제, 낮을수록 억제하지 않음 (0~1)
-          stop: ["문장 생성 중단 단어"],
-        }),
+        body: JSON.stringify({ content: message }), // 예시로 메시지 내용을 전송합니다.
       });
 
       const data = await response.json();
-      const aiResponse = data.choices?.[0]?.message?.content || "No response";
-      addMessage("bot", aiResponse);
+      console.log(data); // 콘솔에 API 응답 출력
+      addMessage("bot", data.response); // 사용자 정의 API에서 받은 응답을 채팅에 추가
     } catch (error) {
       console.error("오류 발생!", error);
-      addMessage("오류 발생!");
+      addMessage("bot", "오류가 발생했습니다.");
     } finally {
-      setLoading(false);
+      setLoading(false); // 로딩 상태 비활성화
     }
   };
 
