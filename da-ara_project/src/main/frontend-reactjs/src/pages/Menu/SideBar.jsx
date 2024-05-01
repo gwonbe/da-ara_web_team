@@ -24,7 +24,7 @@ function SideBar() {
   return (
     <div>
       <Button onClick={openModalHandler}>
-        <FiMenu size="40" />
+        <FiMenu size="40" color="#000" />
       </Button>
       <Menu isOpen={isOpen} onCancel={handleModalCancel} />
     </div>

@@ -30,7 +30,7 @@ const ChatInput = ({ onSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className="chat-input">
       <Button onMouseDown={listen} onMouseUp={stop}>
-        <FaMicrophone size={35} />
+        <FaMicrophone size={35} color="#000" />
       </Button>
       {listening && <div>듣는중입니다🎧</div>}
       <Input

@@ -43,6 +43,7 @@ const ChatWindow = () => {
         width="100%"
         height="280px"
         className="chat-character"
+        poster={`/spinnerImg.png`}
       >
         <source src="/video/newchar1.mp4" type="video/mp4" />
       </video>
