@@ -7,6 +7,7 @@ import { FaXmark } from "react-icons/fa6";
 import styled from "styled-components";
 import Translate from "../../components/Translate";
 import axios from "axios";
+import LogoutModal from "./LogoutModal";
 
 const MenuHead = styled.div`
   height: 45px;
@@ -62,6 +63,7 @@ const Menu = ({ isOpen, onCancel }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isOpen1, setOpen1] = useState(false);
   const [isOpen2, setOpen2] = useState(false);
+  const [isOpen3, setOpen3] = useState(false);
   const [data, setData] = useState("");
 
   useEffect(() => {
@@ -73,6 +75,7 @@ const Menu = ({ isOpen, onCancel }) => {
 
   const handleModal1Cancel = () => setOpen1(false);
   const handleModal2Cancel = () => setOpen2(false);
+  const handleModal3Cancel = () => setOpen3(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -89,7 +92,7 @@ const Menu = ({ isOpen, onCancel }) => {
         {data && data[2] ? (
           <>
             <Li>{`${data[2]} 님`}</Li>
-            <Li>로그아웃</Li>
+            <Li onClick={() => setOpen3(true)}>로그아웃</Li>
             <Li>회원정보수정</Li>
           </>
         ) : (
@@ -103,6 +106,7 @@ const Menu = ({ isOpen, onCancel }) => {
       </Ul>
       <MyModal1 isOpen={isOpen1} onCancel={handleModal1Cancel} />
       <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
+      <LogoutModal isOpen={isOpen3} onCancel={handleModal3Cancel} />
     </Modal>
   );
 };
