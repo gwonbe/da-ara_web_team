@@ -1,22 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./Translate.css";
-import styled from "styled-components";
 
-const Button = styled.button`
-  border: 0;
-  background-color: transparent;
-  cursor: pointer;
-  box-sizing: content-box;
-  font-weight: bold;
-  &:hover {
-    background-color: #E0C6E9
-    transition: 0.2s;
-  }
-`;
-
-const Translate = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // 버튼 리스트의 표시 여부 상태
-
+const Translate = ({ isDropdownOpen }) => {
   function doGTranslate(a, b) {
     if (b === "") return;
     var d = a.split("|")[1];
@@ -62,17 +47,12 @@ const Translate = () => {
     window.googleTranslateElementInit = googleTranslateElementInit2;
   }, []);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen); // 버튼 리스트의 표시 여부를 토글
-  };
-
   const handleLanguageChange = (language) => {
     doGTranslate(`ko|${language}`);
   };
 
   return (
     <div>
-      <Button onClick={toggleDropdown}>언어변경▼</Button>
       {isDropdownOpen && (
         <div className="dropdown-content">
           <button onClick={() => handleLanguageChange("ko")}>한국어</button>{" "}
