@@ -51,6 +51,17 @@ public class UserController{
     }
 
     // 로그아웃
+    
+    @GetMapping("/logout-confirm")
+    public void logoutConfirm(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        HttpSession session = request.getSession();
+            session.setAttribute("uID",null);
+            session.setAttribute("uPW", null);
+            session.setAttribute("uName", null);
+            session.setAttribute("uMajor", null);
+            session.setAttribute("uDoubleMajor", null);
+        response.sendRedirect("");
+    }
 
     // 회원가입
 
