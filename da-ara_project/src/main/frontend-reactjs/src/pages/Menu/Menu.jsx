@@ -2,10 +2,11 @@ import Modal from "react-modal";
 import PropTypes from "prop-types";
 import MyModal1 from "./MyModal1";
 import MyModal2 from "./MyModal2";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaXmark } from "react-icons/fa6";
 import styled from "styled-components";
 import Translate from "../../components/Translate";
+import axios from "axios";
 
 const MenuHead = styled.div`
   height: 45px;
@@ -58,21 +59,23 @@ const Menu = ({ isOpen, onCancel }) => {
       position: "relative",
     },
   };
-
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isOpen1, setOpen1] = useState(false);
   const [isOpen2, setOpen2] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [data, setData] = useState("");
 
-  const handleLoginSuccess = (userData) => {
-    console.log("Login successful with user data:", userData);
-    setIsLoggedIn(true);
-    setUserInfo(userData);
-    setOpen1(false); // Close the login modal on successful login
-  };
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/daara")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   const handleModal1Cancel = () => setOpen1(false);
   const handleModal2Cancel = () => setOpen2(false);
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <Modal isOpen={isOpen} style={customStyles}>
@@ -81,27 +84,24 @@ const Menu = ({ isOpen, onCancel }) => {
           <FaXmark size="30" />
         </Button>
       </MenuHead>
-      {!isLoggedIn ? (
-        <Ul>
-          <Li onClick={() => setOpen1(true)}>로그인</Li>
-          <Li onClick={() => setOpen2(true)}>회원가입</Li>
-          <Li>
-            <Translate />
-          </Li>
-        </Ul>
-      ) : (
-        <Ul>
-          <Li>환영합니다!{userInfo}</Li>
-          <Li>
-            <Translate />
-          </Li>
-        </Ul>
-      )}
-      <MyModal1
-        isOpen={isOpen1}
-        onCancel={handleModal1Cancel}
-        onLoginSuccess={handleLoginSuccess}
-      />
+
+      <Ul>
+        {data && data[2] ? (
+          <>
+            <Li>{`${data[2]} 님`}</Li>
+            <Li>로그아웃</Li>
+            <Li>회원정보수정</Li>
+          </>
+        ) : (
+          <>
+            <Li onClick={() => setOpen1(true)}>로그인</Li>
+            <Li onClick={() => setOpen2(true)}>회원가입</Li>
+            <Li onClick={toggleDropdown}>언어 변경</Li>
+            <Translate isDropdownOpen={isDropdownOpen} />
+          </>
+        )}
+      </Ul>
+      <MyModal1 isOpen={isOpen1} onCancel={handleModal1Cancel} />
       <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
     </Modal>
   );
