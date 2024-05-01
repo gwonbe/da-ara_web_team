@@ -13,9 +13,9 @@ const ChatWindow = () => {
 
   const handleSubmit = async (message) => {
     //사용자 메시지를 추가합니다.
-    addMessage(message, true);
+    //addMessage(message, true);
     //inputElem.current.focus();
-
+    
     try {
       // 백엔드 서버와 통신하여 GPT의 응답을 받습니다.
       const response = await axios.post("http://localhost:8080/ask", {
@@ -29,6 +29,7 @@ const ChatWindow = () => {
     } catch (error) {
       console.error("Error fetching GPT response:", error);
     }
+    
   };
 
   // 동영상 경로

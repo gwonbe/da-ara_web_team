@@ -10,8 +10,7 @@ def main_page():
 
 @app.route('/api/data', methods=['GET'])
 def get_data():
-    data = {'name' : 'Alice', 'age' : '20'}
-    print(data)
+    data = {'text' : 'Hello!', 'label' : '100'}
     return jsonify(data), 200
 
 if __name__ == '__main__':

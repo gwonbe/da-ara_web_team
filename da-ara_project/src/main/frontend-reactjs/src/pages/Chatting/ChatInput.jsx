@@ -12,6 +12,18 @@ const Input = styled.input`
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 `;
 
+function requestToAPI(){
+  console.log("API 실행을 시작합니다.");
+  fetch('http://127.0.0.1:5000/api/data').then(function(response){
+      return response.json();
+  })
+  .then(function(myJson){
+      console.log(myJson);
+      console.log(myJson['text']);
+  })
+}
+
+
 // eslint-disable-next-line react/prop-types
 const ChatInput = ({ onSubmit }) => {
   const [value, setValue] = useState("");
@@ -40,7 +52,7 @@ const ChatInput = ({ onSubmit }) => {
         placeholder="질문을 입력해주세요."
       />
 
-      <Button type="submit">
+      <Button type="submit" onClick={requestToAPI}>
         <IoSend size={35} color="black" />
       </Button>
     </form>
