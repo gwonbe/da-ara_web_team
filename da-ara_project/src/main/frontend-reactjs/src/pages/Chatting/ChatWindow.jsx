@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import axios from "axios";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
@@ -15,21 +15,23 @@ const ChatWindow = () => {
     //사용자 메시지를 추가합니다.
     //addMessage(message, true);
     //inputElem.current.focus();
-    
+
     try {
+      /*
       // 백엔드 서버와 통신하여 GPT의 응답을 받습니다.
-      const response = await axios.post("http://localhost:8080/ask", {
+      const response = await axios.post("http://127.0.0.1:5000/api/data", {
         prompt: message,
       });
 
       //GPT로부터 받은 응답을 채팅창에 추가합니다.
       if (response.data) {
-        addMessage(response.data, false);
+        addMessage(response.data["text"], false);
       }
+      */
+      addMessage(localStorage.getItem("text"), false);
     } catch (error) {
       console.error("Error fetching GPT response:", error);
     }
-    
   };
 
   // 동영상 경로
