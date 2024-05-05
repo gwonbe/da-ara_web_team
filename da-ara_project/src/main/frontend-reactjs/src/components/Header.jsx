@@ -1,6 +1,4 @@
 // Header.jsx
-// import styled from "styled-components";
-// import Modal from "../pages/Menu/SideModal";
 import SideBar from "../pages/Menu/SideBar";
 import styled from "styled-components";
 
@@ -19,11 +17,14 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Header = () => {
+const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (
     <Container>
       <SideBar />
       <Title>DA-ARA</Title>
+      <button onClick={toggleVoice}>
+        {isVoiceEnabled ? "음성 끄기" : "음성 켜기"}
+      </button>
     </Container>
   );
 };

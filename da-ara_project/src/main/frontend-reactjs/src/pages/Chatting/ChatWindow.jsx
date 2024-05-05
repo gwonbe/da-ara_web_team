@@ -1,15 +1,23 @@
 import { useState, useRef } from "react";
-import axios from "axios";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
-const ChatWindow = () => {
+const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
   const inputElem = useRef(null);
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
   };
+
+  function speak(text) {
+    if (isVoiceEnabled) {
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "ko-KR"; //말하는 언어
+      utterance.rate = 1; //말하는 속도
+      speechSynthesis.speak(utterance);
+    }
+  }
 
   const handleSubmit = async (message) => {
     //사용자 메시지를 추가합니다.
@@ -28,27 +36,14 @@ const ChatWindow = () => {
           console.log(myJson);
           console.log(myJson["text"]);
           localStorage.setItem("text", myJson["text"]);
+          speak(myJson["text"]);
         });
-      /*
-      // 백엔드 서버와 통신하여 GPT의 응답을 받습니다.
-      const response = await axios.post("http://127.0.0.1:5000/api/data", {
-        prompt: message,
-      });
-
-      //GPT로부터 받은 응답을 채팅창에 추가합니다.
-      if (response.data) {
-        addMessage(response.data["text"], false);
-      }
-      */
       addMessage(localStorage.getItem("text"), false);
     } catch (error) {
       console.error("Error fetching GPT response:", error);
     }
   };
 
-  // 동영상 경로
-  // - 자바 : "../video/character.mp4"
-  // - 리액트 : "../../../public/video/character.mp4"
   return (
     <div className="chat-window">
       <video

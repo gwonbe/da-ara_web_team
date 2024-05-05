@@ -1,4 +1,5 @@
 // import Chatting from "./Chatting";
+import { useState } from "react";
 import Header from "../../components/Header";
 import styled from "styled-components";
 import "./chat.css";
@@ -16,10 +17,15 @@ const Container = styled.div`
 `;
 
 const ChatPage = () => {
+  const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
+
+  const toggleVoice = () => {
+    setIsVoiceEnabled(!isVoiceEnabled);
+  };
   return (
     <Container>
-      <Header />
-      <ChatWindow />
+      <Header toggleVoice={toggleVoice} isVoiceEnabled={isVoiceEnabled} />
+      <ChatWindow isVoiceEnabled={isVoiceEnabled} />
     </Container>
   );
 };
