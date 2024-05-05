@@ -8,7 +8,6 @@ const Button = styled.button`
   border: 0;
   background-color: transparent;
   float: left;
-  left: 10px;
   cursor: pointer;
 `;
 

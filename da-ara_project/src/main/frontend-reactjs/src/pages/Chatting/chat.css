@@ -6,7 +6,8 @@
   background-color: aliceblue;
 }
 .chat-character {
-  padding-top: 40px;
+  height: 40vh;
+  padding-top: 5vh;
   position: absolute;
   outline: none;
   border: 0;
@@ -14,6 +15,17 @@
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   z-index: 1;
+  @media (max-width: 639px) {
+    height: 30vh;
+    padding-top: 5vh;
+  }
+}
+
+.chat-character embed,
+.chat-character object {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
 .chat-window {
@@ -28,7 +40,7 @@
 }
 
 .chat-messages {
-  height: 300px;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
@@ -36,7 +48,7 @@
   flex: 1;
   padding: 8px;
   position: relative;
-  top: 280px;
+  margin-top: 50px;
   z-index: 0;
 }
 
