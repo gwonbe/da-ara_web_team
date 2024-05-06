@@ -31,7 +31,7 @@ const Translate = ({ isDropdownOpen }) => {
       new window.google.translate.TranslateElement(
         {
           pageLanguage: "ko",
-          includedLanguages: "ko,zh-CN,zh-TW,en",
+          includedLanguages: "ko,zh-CN,en,ja",
           autoDisplay: false,
         },
         "google_translate_element2"
@@ -62,6 +62,8 @@ const Translate = ({ isDropdownOpen }) => {
           </button>{" "}
           <br />
           <button onClick={() => handleLanguageChange("zh-CN")}>中国人</button>
+          <br />
+          <button onClick={() => handleLanguageChange("ja")}>日本語</button>
         </div>
       )}
       <div id="google_translate_element2"></div>
