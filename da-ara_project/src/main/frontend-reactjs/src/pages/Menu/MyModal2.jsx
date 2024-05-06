@@ -9,8 +9,7 @@ const MyModal2 = ({ isOpen, onCancel }) => {
       backgroundColor: "#00000070",
     },
     content: {
-      height: "400px",
-      width: "400px",
+      width: "60vh",
       inset: "unset",
       margin: "50vh auto",
       padding: 0,
@@ -24,11 +23,12 @@ const MyModal2 = ({ isOpen, onCancel }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} style={customStyles}>
-      <SignupPage />
-      <div>
-        <button onClick={handleClickCancel}>돌아가기</button>
-      </div>
+    <Modal
+      isOpen={isOpen}
+      style={customStyles}
+      onRequestClose={handleClickCancel}
+    >
+      <SignupPage handleClickCancel={handleClickCancel} />
     </Modal>
   );
 };

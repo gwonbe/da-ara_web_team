@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
+import { MdCancel } from "react-icons/md";
 
 const Form = styled.div`
   width: 100%;
@@ -11,10 +12,11 @@ const Form = styled.div`
 const Loginform = styled.form`
   display: grid;
   row-gap: 16px;
+  padding: 5px;
 `;
 
 const H2 = styled.h2`
-  padding: 15px;
+  padding: 5px;
   font-size: 22px;
   font-weight: 600;
   text-align: center;
@@ -42,6 +44,12 @@ const Button = styled.button`
     color: white;
   }
 `;
+const CloseButton = styled.button`
+  // float: right;
+  outline: none;
+  cursor: pointer;
+  border: none;
+`;
 const Label = styled.label`
   display: block;
 `;
@@ -55,7 +63,7 @@ const Input = styled.input`
   }
 `;
 
-const SignupPage = () => {
+const SignupPage = ({ handleClickCancel }) => {
   const [usernumber, setUsernumber] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -145,6 +153,9 @@ const SignupPage = () => {
 
   return (
     <Form>
+      <CloseButton onClick={handleClickCancel}>
+        <MdCancel size={30} />
+      </CloseButton>
       <Loginform action="/signup-confirm" method="post">
         <H2>회원가입</H2>
         <Label>성명</Label>

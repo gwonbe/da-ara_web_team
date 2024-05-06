@@ -1,6 +1,7 @@
 // import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
+import { MdCancel } from "react-icons/md";
 
 const Form = styled.div`
   width: 100%;
@@ -11,6 +12,7 @@ const Form = styled.div`
 const Loginform = styled.form`
   display: grid;
   row-gap: 16px;
+  padding: 5px;
 `;
 
 const H2 = styled.h2`
@@ -54,7 +56,13 @@ const Input = styled.input`
     outline: none;
   }
 `;
-const LoginPage = () => {
+const CloseButton = styled.button`
+  // float: right;
+  outline: none;
+  cursor: pointer;
+  border: none;
+`;
+const LoginPage = ({ handleClickCancel }) => {
   const [idValue, setIdValue] = useState("");
   const [pwValue, setPwValue] = useState("");
   // const navigate = useNavigate();
@@ -69,8 +77,11 @@ const LoginPage = () => {
 
   return (
     <Form>
-      <H2>로그인</H2>
+      <CloseButton onClick={handleClickCancel}>
+        <MdCancel size={30} />
+      </CloseButton>
       <Loginform action="/login-confirm" className="login-box" method="post">
+        <H2>로그인</H2>
         <Label htmlFor="name">학번 </Label>
         <Input
           name="uID"

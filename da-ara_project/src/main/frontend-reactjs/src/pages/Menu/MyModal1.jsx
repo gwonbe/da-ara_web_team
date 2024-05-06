@@ -9,8 +9,7 @@ const MyModal1 = ({ isOpen, onCancel }) => {
       backgroundColor: "#00000070",
     },
     content: {
-      height: "400px",
-      width: "400px",
+      width: "60vh",
       inset: "unset",
       margin: "50vh auto",
       padding: 0,
@@ -29,14 +28,7 @@ const MyModal1 = ({ isOpen, onCancel }) => {
       style={customStyles}
       onRequestClose={handleClickCancel}
     >
-      <div>
-        <LoginPage />
-      </div>
-      <div>
-        <button onClick={handleClickCancel} aria-label="Close modal">
-          돌아가기
-        </button>
-      </div>
+      <LoginPage handleClickCancel={handleClickCancel} />
     </Modal>
   );
 };
