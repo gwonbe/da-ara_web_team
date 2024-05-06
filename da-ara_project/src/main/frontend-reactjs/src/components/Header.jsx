@@ -25,6 +25,11 @@ const Button = styled.button`
 const Title = styled.h1`
   text-align: center;
 `;
+const Img = styled.img`
+  opacity: 0.4;
+  height: 40px;
+  position: absolute;
+`;
 
 const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (
@@ -37,7 +42,11 @@ const Header = ({ toggleVoice, isVoiceEnabled }) => {
           <HiMiniSpeakerWave size="40" color="#000" />
         )}
       </Button>
-      <Title>DA-ARA</Title>
+
+      <Title>
+        <Img src="/hallymlogo.png" alt="한림대로고" />
+        DA-ARA
+      </Title>
     </Container>
   );
 };
