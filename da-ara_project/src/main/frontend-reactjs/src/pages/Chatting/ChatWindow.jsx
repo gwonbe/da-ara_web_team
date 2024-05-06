@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 import axios from "axios";
@@ -67,36 +67,36 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         <source src="/video/newchar1.mp4" type="video/mp4" />
       </video>
       {data && data[0] ? (
-          <>
-            <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
-              <input name="cUser" style={{ display: "none" }}>{`${data[0]}`}</input>
-              <div className="chat-messages">
-                {messages.map((message, index) => (
-                  <ChatMessage
-                    key={index}
-                    message={message.text}
-                    isUser={message.isUser}
-                  />
-                ))}
-              </div>
-            </form>
-          </>
-        ) : (
-          <>
+        <>
+          <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
+            <input
+              name="cUser"
+              style={{ display: "none" }}
+            >{`${data[0]}`}</input>
             <div className="chat-messages">
-                {messages.map((message, index) => (
-                  <ChatMessage
-                    key={index}
-                    message={message.text}
-                    isUser={message.isUser}
-                  />
-                ))}
+              {messages.map((message, index) => (
+                <ChatMessage
+                  key={index}
+                  message={message.text}
+                  isUser={message.isUser}
+                />
+              ))}
             </div>
-          </>
-        )
-      }
-
-      
+          </form>
+        </>
+      ) : (
+        <>
+          <div className="chat-messages">
+            {messages.map((message, index) => (
+              <ChatMessage
+                key={index}
+                message={message.text}
+                isUser={message.isUser}
+              />
+            ))}
+          </div>
+        </>
+      )}
 
       <ChatInput onSubmit={handleSubmit} />
     </div>
