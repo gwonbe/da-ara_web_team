@@ -1,10 +1,19 @@
 import { useState, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
+import axios from "axios";
 
 const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
   const inputElem = useRef(null);
+  const [data, setData] = useState("");
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/daara")
+      .then((res) => setData(res.data))
+      .catch((err) => console.log(err));
+  }, []);
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
@@ -57,19 +66,37 @@ const ChatWindow = ({ isVoiceEnabled }) => {
       >
         <source src="/video/newchar1.mp4" type="video/mp4" />
       </video>
+      {data && data[0] ? (
+          <>
+            <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
+              <input name="cUser" style={{ display: "none" }}>{`${data[0]}`}</input>
+              <div className="chat-messages">
+                {messages.map((message, index) => (
+                  <ChatMessage
+                    key={index}
+                    message={message.text}
+                    isUser={message.isUser}
+                  />
+                ))}
+              </div>
+            </form>
+          </>
+        ) : (
+          <>
+            <div className="chat-messages">
+                {messages.map((message, index) => (
+                  <ChatMessage
+                    key={index}
+                    message={message.text}
+                    isUser={message.isUser}
+                  />
+                ))}
+            </div>
+          </>
+        )
+      }
 
-      <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
-        <input name="cUser" style={{ display: "none" }}></input>
-        <div className="chat-messages">
-          {messages.map((message, index) => (
-            <ChatMessage
-              key={index}
-              message={message.text}
-              isUser={message.isUser}
-            />
-          ))}
-        </div>
-      </form>
+      
 
       <ChatInput onSubmit={handleSubmit} />
     </div>
