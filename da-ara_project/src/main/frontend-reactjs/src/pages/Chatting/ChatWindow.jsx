@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
-import axios from "axios";
+// import axios from "axios";
 
 const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
@@ -14,6 +14,9 @@ const ChatWindow = ({ isVoiceEnabled }) => {
   //     .then((res) => setData(res.data))
   //     .catch((err) => console.log(err));
   // }, []);
+
+  const user = localStorage.getItem("user_data");
+  console.log(`${user[0]}, ${user[1]}, ${user[2]}, ${user[3]}, ${user[4]}`);
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
