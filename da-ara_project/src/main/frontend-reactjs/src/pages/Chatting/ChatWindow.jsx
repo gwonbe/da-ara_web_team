@@ -64,24 +64,21 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         className="chat-character"
         poster={`/spinnerImg.png`}
       >
-        <source src="/video/newchar1.mp4" type="video/mp4" />
+        <source src="/video/defaultCharacter.mp4" type="video/mp4" />
       </video>
-      
-          <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
-            <input
-              name="cUser"
-              style={{ display: "none" }}
-            ></input>
-            <div className="chat-messages">
-              {messages.map((message, index) => (
-                <ChatMessage
-                  key={index}
-                  message={message.text}
-                  isUser={message.isUser}
-                />
-              ))}
-            </div>
-          </form>
+
+      <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
+        <input name="cUser" style={{ display: "none" }}></input>
+        <div className="chat-messages">
+          {messages.map((message, index) => (
+            <ChatMessage
+              key={index}
+              message={message.text}
+              isUser={message.isUser}
+            />
+          ))}
+        </div>
+      </form>
 
       <ChatInput onSubmit={handleSubmit} />
     </div>

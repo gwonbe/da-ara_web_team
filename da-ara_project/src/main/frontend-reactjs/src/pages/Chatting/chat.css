@@ -10,7 +10,7 @@
   background-color: aliceblue;
 }
 .chat-character {
-  height: 40vh;
+  height: 45vh;
   padding-top: 5vh;
   position: absolute;
   outline: none;
@@ -20,7 +20,7 @@
   -moz-backface-visibility: hidden;
   z-index: 1;
   @media (max-width: 639px) {
-    height: 38vh;
+    height: 40vh;
     padding-top: 7vh;
   }
 }
@@ -45,7 +45,7 @@
 
 .chat-messages {
   position: absolute;
-  top: 40vh;
+  top: 45vh;
   height: calc(60vh - 55px);
   width: 100%;
   display: flex;
@@ -57,7 +57,7 @@
   bottom: 55px;
   z-index: 0;
   @media (max-width: 639px) {
-    top: 38vh;
+    top: 40vh;
   }
 }
 
