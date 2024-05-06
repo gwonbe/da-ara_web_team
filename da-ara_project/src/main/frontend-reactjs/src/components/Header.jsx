@@ -1,8 +1,8 @@
 // Header.jsx
 import SideBar from "../pages/Menu/SideBar";
 import styled from "styled-components";
-import { GiSpeakerOff } from "react-icons/gi";
-import { GiSpeaker } from "react-icons/gi";
+import { HiMiniSpeakerXMark } from "react-icons/hi2";
+import { HiMiniSpeakerWave } from "react-icons/hi2";
 
 const Container = styled.div`
   min-width: 360px;
@@ -32,9 +32,9 @@ const Header = ({ toggleVoice, isVoiceEnabled }) => {
       <SideBar />
       <Button onClick={toggleVoice}>
         {isVoiceEnabled ? (
-          <GiSpeakerOff size="40" color="#000" />
+          <HiMiniSpeakerXMark size="40" color="#000" />
         ) : (
-          <GiSpeaker size="40" color="#000" />
+          <HiMiniSpeakerWave size="40" color="#000" />
         )}
       </Button>
       <Title>DA-ARA</Title>
