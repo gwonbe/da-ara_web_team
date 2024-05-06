@@ -52,7 +52,7 @@ const Menu = ({ isOpen, onCancel }) => {
     content: {
       float: "left",
       width: "200px",
-      height: "100%",
+      height: "100vh",
       inset: "unset",
       margin: "50vh auto",
       padding: 0,

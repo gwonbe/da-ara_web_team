@@ -58,8 +58,8 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         <source src="/video/newchar1.mp4" type="video/mp4" />
       </video>
 
-      <form action="saveChatRecord" method="post" style={{width:"100%"}}>
-        <input name="cUser" style={{display:"none"}}></input>
+      <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
+        <input name="cUser" style={{ display: "none" }}></input>
         <div className="chat-messages">
           {messages.map((message, index) => (
             <ChatMessage
