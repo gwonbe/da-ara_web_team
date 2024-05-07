@@ -11,7 +11,7 @@ const Form = styled.div`
 `;
 const Loginform = styled.form`
   display: grid;
-  row-gap: 16px;
+  row-gap: 13px;
   padding: 5px;
 `;
 
