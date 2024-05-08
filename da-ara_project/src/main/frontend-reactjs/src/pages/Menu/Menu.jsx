@@ -95,7 +95,8 @@ const Menu = ({ isOpen, onCancel }) => {
           <>
             <Li>{`${data[2]} 님`}</Li>
             <Li onClick={() => setOpen3(true)}>로그아웃</Li>
-            <Li>회원정보수정</Li>
+            <Li onClick={toggleDropdown}>언어 변경</Li>
+            <Translate isDropdownOpen={isDropdownOpen} />
           </>
         ) : (
           <>

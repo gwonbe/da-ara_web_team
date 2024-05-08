@@ -8,7 +8,6 @@ const LogoutModal = ({ isOpen, onCancel }) => {
       backgroundColor: "#00000070",
     },
     content: {
-      height: "400px",
       width: "400px",
       inset: "unset",
       margin: "50vh auto",
@@ -28,14 +27,7 @@ const LogoutModal = ({ isOpen, onCancel }) => {
       style={customStyles}
       onRequestClose={handleClickCancel}
     >
-      <div>
-        <LogoutPage />
-      </div>
-      <div>
-        <button onClick={handleClickCancel} aria-label="Close modal">
-          돌아가기
-        </button>
-      </div>
+      <LogoutPage handleClickCancel={handleClickCancel} />
     </Modal>
   );
 };
