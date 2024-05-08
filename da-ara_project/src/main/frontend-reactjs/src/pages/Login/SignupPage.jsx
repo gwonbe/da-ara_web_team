@@ -49,6 +49,7 @@ const CloseButton = styled.button`
   outline: none;
   cursor: pointer;
   border: none;
+  border-radius: 11px;
 `;
 const Label = styled.label`
   display: block;
@@ -68,6 +69,7 @@ const SignupPage = ({ handleClickCancel }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [pwdErrorMsg, setPwdErrorMsg] = useState("");
+  const [selectedMajor, setSelectedMajor] = useState(null);
 
   // 비밀번호 정규식
   const passwordNumber = /^[A-Za-z0-9]{8,20}$/;
@@ -151,6 +153,10 @@ const SignupPage = ({ handleClickCancel }) => {
     { value: "공공인재융합전공", label: "공공인재융합전공" },
   ];
 
+  const handleMajorChange = (selectedOption) => {
+    setSelectedMajor(selectedOption);
+  };
+
   return (
     <Form>
       <CloseButton onClick={handleClickCancel}>
@@ -192,14 +198,17 @@ const SignupPage = ({ handleClickCancel }) => {
         {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
         <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
         <Select
+          onChange={handleMajorChange}
           options={options}
+          value={selectedMajor}
+          getOptionLabel={(option) => option.label}
           placeholder="학과를 입력(선택)해주세요..."
           name="uMajor"
         />
         <ButtonForm>
           <Button
             type="submit"
-            disabled={!(username && password && usernumber)}
+            disabled={!(username && password && usernumber && selectedMajor)}
           >
             회원가입
           </Button>
