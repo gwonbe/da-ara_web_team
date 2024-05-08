@@ -61,6 +61,7 @@ const CloseButton = styled.button`
   outline: none;
   cursor: pointer;
   border: none;
+  border-radius: 11px;
 `;
 const LoginPage = ({ handleClickCancel }) => {
   const [idValue, setIdValue] = useState("");

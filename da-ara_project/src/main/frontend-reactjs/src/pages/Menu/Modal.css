@@ -1,0 +1,14 @@
+.modal-content {
+  width: 60vh; /* 기본은 60vh */
+  inset: unset;
+  margin: 50vh auto;
+  padding: 5px;
+  transform: translateY(-50%);
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 100vw; /* 모바일에서는 너비를 100vw로 설정 */
+  }
+}
