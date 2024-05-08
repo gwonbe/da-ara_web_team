@@ -6,6 +6,7 @@ import ChatInput from "./ChatInput";
 const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
   const inputElem = useRef(null);
+<<<<<<< HEAD
   const messagesEndRef = useRef(null);
   //const [data, setData] = useState("");
 
@@ -25,6 +26,11 @@ const ChatWindow = ({ isVoiceEnabled }) => {
   }, [messages]);
   const user = localStorage.getItem("user_data");
   console.log(`${user[0]}, ${user[1]}, ${user[2]}, ${user[3]}, ${user[4]}`);
+=======
+ 
+  const userID = localStorage.getItem("userID");
+  console.log(userID);
+>>>>>>> main
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
@@ -47,14 +53,14 @@ const ChatWindow = ({ isVoiceEnabled }) => {
     }
 
     try {
-      console.log("API 실행을 시작합니다.");
+      //console.log("API 실행을 시작합니다.");
       fetch("http://127.0.0.1:5000/api/data")
         .then(function (response) {
           return response.json();
         })
         .then(function (myJson) {
-          console.log(myJson);
-          console.log(myJson["text"]);
+          //console.log(myJson);
+          //console.log(myJson["text"]);
           localStorage.setItem("text", myJson["text"]);
           speak(myJson["text"]);
         });
@@ -79,7 +85,6 @@ const ChatWindow = ({ isVoiceEnabled }) => {
       </video>
 
       <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
-        <input name="cUser" style={{ display: "none" }}></input>
         <div className="chat-messages">
           {messages.map((message, index) => (
             <ChatMessage

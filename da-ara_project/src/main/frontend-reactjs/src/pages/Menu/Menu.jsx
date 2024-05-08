@@ -80,7 +80,7 @@ const Menu = ({ isOpen, onCancel }) => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  localStorage.setItem("user_data", data);
+  localStorage.setItem("userID", data[0]);
 
   return (
     <Modal isOpen={isOpen} style={customStyles}>
