@@ -6,7 +6,6 @@ import ChatInput from "./ChatInput";
 const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
   const inputElem = useRef(null);
-<<<<<<< HEAD
   const messagesEndRef = useRef(null);
   //const [data, setData] = useState("");
 
@@ -26,11 +25,6 @@ const ChatWindow = ({ isVoiceEnabled }) => {
   }, [messages]);
   const user = localStorage.getItem("user_data");
   console.log(`${user[0]}, ${user[1]}, ${user[2]}, ${user[3]}, ${user[4]}`);
-=======
- 
-  const userID = localStorage.getItem("userID");
-  console.log(userID);
->>>>>>> main
 
   const addMessage = (message, isUser) => {
     setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
