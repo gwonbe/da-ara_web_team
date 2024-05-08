@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 // import axios from "axios";
@@ -6,6 +6,7 @@ import ChatInput from "./ChatInput";
 const ChatWindow = ({ isVoiceEnabled }) => {
   const [messages, setMassages] = useState([]);
   const inputElem = useRef(null);
+  const messagesEndRef = useRef(null);
   //const [data, setData] = useState("");
 
   // useEffect(() => {
@@ -15,6 +16,13 @@ const ChatWindow = ({ isVoiceEnabled }) => {
   //     .catch((err) => console.log(err));
   // }, []);
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
   const user = localStorage.getItem("user_data");
   console.log(`${user[0]}, ${user[1]}, ${user[2]}, ${user[3]}, ${user[4]}`);
 
@@ -80,6 +88,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
               isUser={message.isUser}
             />
           ))}
+          <div ref={messagesEndRef} />
         </div>
       </form>
 
@@ -89,39 +98,3 @@ const ChatWindow = ({ isVoiceEnabled }) => {
 };
 
 export default ChatWindow;
-
-/*
-
-{data && data[0] ? (
-        <>
-          <form action="saveChatRecord" method="post" style={{ width: "100%" }}>
-            <input
-              name="cUser"
-              style={{ display: "none" }}
-            >{`${data[0]}`}</input>
-            <div className="chat-messages">
-              {messages.map((message, index) => (
-                <ChatMessage
-                  key={index}
-                  message={message.text}
-                  isUser={message.isUser}
-                />
-              ))}
-            </div>
-          </form>
-        </>
-      ) : (
-        <>
-          <div className="chat-messages">
-            {messages.map((message, index) => (
-              <ChatMessage
-                key={index}
-                message={message.text}
-                isUser={message.isUser}
-              />
-            ))}
-          </div>
-        </>
-      )}
-
-*/

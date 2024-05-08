@@ -20,6 +20,7 @@ const ChatInput = ({ onSubmit }) => {
   const inputRef = useRef(null);
   const { listen, listening, stop } = useSpeechRecognition({
     onResult: (result) => {
+      console.log(result);
       setValue(result);
     },
   });
@@ -42,6 +43,13 @@ const ChatInput = ({ onSubmit }) => {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit(event);
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit} className="chat-input">
       {!isMobile && (
@@ -54,6 +62,7 @@ const ChatInput = ({ onSubmit }) => {
         type="text"
         value={value}
         onChange={(event) => setValue(event.target.value)}
+        onKeyDown={handleKeyDown}
         placeholder="질문을 입력해주세요."
       />
 
