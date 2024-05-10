@@ -54,7 +54,7 @@ const ChatInput = ({ onSubmit }) => {
     <form onSubmit={handleSubmit} className="chat-input">
       {!isMobile && (
         <Button onClick={toggleListen}>
-          <FaMicrophone size={35} color={listening ? "red" : "black"} />
+          <FaMicrophone size={35} color={listening ? "#152552" : "black"} />
         </Button>
       )}
       <Input
