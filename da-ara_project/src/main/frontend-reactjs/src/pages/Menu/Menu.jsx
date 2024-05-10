@@ -11,7 +11,7 @@ import LogoutModal from "./LogoutModal";
 
 const MenuHead = styled.div`
   height: 45px;
-  background-color: #e0c6e9;
+  background-color: #152552;
 `;
 const Button = styled.button`
   padding-top: 5px;
@@ -34,13 +34,22 @@ const Li = styled.li`
   list-style: none;
   margin: 5px 0px;
   padding: 5px 0px;
-  border: 3px solid #e0c6e9;
+  border: 3px solid #152552;
   border-radius: 7px;
   cursor: pointer;
   &:hover {
-    background-color: #e0c6e9;
+    background-color: #152552;
     transition: 0.2s;
+    color: white;
   }
+`;
+const NameLi = styled.li`
+  font-weight: bold;
+  display: inline-block;
+  width: 180px;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
 `;
 
 const Menu = ({ isOpen, onCancel }) => {
@@ -86,14 +95,14 @@ const Menu = ({ isOpen, onCancel }) => {
     <Modal isOpen={isOpen} style={customStyles}>
       <MenuHead>
         <Button onClick={onCancel}>
-          <FaXmark size="30" />
+          <FaXmark size="30" color="#fff" />
         </Button>
       </MenuHead>
 
       <Ul>
         {data && data[2] ? (
           <>
-            <Li>{`${data[2]} 님`}</Li>
+            <NameLi>{`${data[2]} 님`}</NameLi>
             <Li onClick={() => setOpen3(true)}>로그아웃</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
