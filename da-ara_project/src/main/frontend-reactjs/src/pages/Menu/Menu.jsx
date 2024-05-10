@@ -42,6 +42,14 @@ const Li = styled.li`
     transition: 0.2s;
   }
 `;
+const NameLi = styled.li`
+  font-weight: bold;
+  display: inline-block;
+  width: 180px;
+  list-style: none;
+  margin: 5px 0px;
+  padding: 5px 0px;
+`;
 
 const Menu = ({ isOpen, onCancel }) => {
   const customStyles = {
@@ -93,7 +101,7 @@ const Menu = ({ isOpen, onCancel }) => {
       <Ul>
         {data && data[2] ? (
           <>
-            <Li>{`${data[2]} 님`}</Li>
+            <NameLi>{`${data[2]} 님`}</NameLi>
             <Li onClick={() => setOpen3(true)}>로그아웃</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
