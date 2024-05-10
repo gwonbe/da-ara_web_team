@@ -19,7 +19,7 @@
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   z-index: 1;
-  @media (max-width: 639px) {
+  @media (max-width: 500px) {
     height: 40vh;
     padding-top: 4vh;
   }
@@ -57,7 +57,7 @@
   padding: 8px;
   bottom: 55px;
   z-index: 0;
-  @media (max-width: 639px) {
+  @media (max-width: 500px) {
     top: 39.5vh;
   }
 }
