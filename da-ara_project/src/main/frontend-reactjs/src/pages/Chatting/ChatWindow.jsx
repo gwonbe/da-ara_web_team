@@ -71,11 +71,10 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         loop
         muted
         width="100%"
-        height="280px"
         className="chat-character"
         poster={`/spinnerImg.png`}
       >
-        <source src="/video/defaultCharacter.mp4" type="video/mp4" />
+        <source src="/video/defchar.mp4" type="video/mp4" />
       </video>
 
       <form action="saveChatRecord" method="post" style={{ width: "100%" }}>

@@ -11,7 +11,7 @@
 }
 .chat-character {
   height: 45vh;
-  padding-top: 5vh;
+  padding-top: 6vh;
   position: absolute;
   outline: none;
   border: 0;
@@ -21,7 +21,7 @@
   z-index: 1;
   @media (max-width: 639px) {
     height: 40vh;
-    padding-top: 7vh;
+    padding-top: 4vh;
   }
 }
 
@@ -37,6 +37,7 @@
   position: relative;
   overflow-y: hidden;
   width: 100%;
+  background-color: white;
   height: calc(var(--vh, 1vh) * 100);
   /* @media (max-width: 768px) {
     height: 94vh;
@@ -57,7 +58,7 @@
   bottom: 55px;
   z-index: 0;
   @media (max-width: 639px) {
-    top: 40vh;
+    top: 39.5vh;
   }
 }
 
@@ -92,16 +93,22 @@
   z-index: 10;
   box-sizing: border-box;
   padding: 10px;
-  background-color: #f5f5ff;
+  background-color: white;
+  @media (max-width: 639px) {
+    margin-left: 10px;
+  }
 }
 
 .chat-input input {
   position: relative;
   padding: 10px;
   border: 1px solid #ccc;
-  width: calc(100% - 65px);
+  width: calc(100% - 85px);
   border-radius: 10px;
   outline: none;
+  @media (max-width: 639px) {
+    width: calc(100% - 55px);
+  }
 }
 
 .chat-input input:focus {
@@ -109,7 +116,7 @@
 }
 
 .chat-input button {
-  background-color: #f5f5ff;
+  background-color: white;
   cursor: pointer;
   border: none;
   margin-left: 10px;
