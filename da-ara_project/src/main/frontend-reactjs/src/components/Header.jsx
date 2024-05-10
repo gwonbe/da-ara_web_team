@@ -3,13 +3,14 @@ import SideBar from "../pages/Menu/SideBar";
 import styled from "styled-components";
 import { HiMiniSpeakerXMark } from "react-icons/hi2";
 import { HiMiniSpeakerWave } from "react-icons/hi2";
+import "../assets/fonts/fonts.css";
 
 const Container = styled.div`
   min-width: 360px;
   position: fixed;
   z-index: 50;
   width: 100%;
-  background-color: white;
+  background-color: #152552;
   top: 0;
   padding: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
@@ -24,30 +25,25 @@ const Button = styled.button`
 `;
 const Title = styled.h1`
   text-align: center;
+  color: white;
+  font-family: "BagleFatOne";
 `;
-const Img = styled.img`
-  opacity: 0.4;
-  height: 40px;
-  position: absolute;
-`;
-
 const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (
-    <Container>
-      <SideBar />
-      <Button onClick={toggleVoice}>
-        {isVoiceEnabled ? (
-          <HiMiniSpeakerXMark size="40" color="#000" />
-        ) : (
-          <HiMiniSpeakerWave size="40" color="#000" />
-        )}
-      </Button>
+    <>
+      <Container>
+        <SideBar />
+        <Button onClick={toggleVoice}>
+          {isVoiceEnabled ? (
+            <HiMiniSpeakerXMark size="40" color="#fff" />
+          ) : (
+            <HiMiniSpeakerWave size="40" color="#fff" />
+          )}
+        </Button>
 
-      <Title>
-        <Img src="/hallymlogo.png" alt="한림대로고" />
-        DA-ARA
-      </Title>
-    </Container>
+        <Title>DA-ARA</Title>
+      </Container>
+    </>
   );
 };
 
