@@ -27,6 +27,7 @@ const Title = styled.h1`
   text-align: center;
   color: white;
   font-family: "BagleFatOne";
+  align-items: center;
 `;
 const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (

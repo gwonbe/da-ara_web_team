@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Translate from "../../components/Translate";
 import axios from "axios";
 import LogoutModal from "./LogoutModal";
+import "./menu.css";
 
 const MenuHead = styled.div`
   height: 45px;
