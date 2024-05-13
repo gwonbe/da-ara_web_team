@@ -17,20 +17,25 @@ const Loginform = styled.form`
 `;
 
 const H2 = styled.h2`
-  padding: 15px;
-  font-size: 25px;
+  font-size: 50px;
   text-align: center;
-  font-family: "NanumSquareRoundEB";
+  font-family: "BagleFatOne";
+  color: #fff;
+  -webkit-text-stroke: 1px #9a96c8;
 `;
 const ButtonForm = styled.div`
   background: #f3f2fd;
   color: white;
   align-self: end;
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Button = styled.button`
   background-color: #d6d4f2;
-  width: 100%;
+
+  width: 90%;
   color: black;
   font-weight: bold;
   outline: none;
@@ -48,13 +53,17 @@ const Button = styled.button`
   }
 `;
 const Label = styled.label`
-  padding-left: 1rem;
+  padding-left: 2rem;
   display: block;
   font-family: "NanumSquareRoundR";
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: 90%;
+  margin: 0 auto; /* Add this line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.2rem;
   border-radius: 9px;
   border: none;
@@ -64,11 +73,13 @@ const Input = styled.input`
 `;
 
 const CloseButton = styled.button`
+  margin: 5px;
   // float: right;
   outline: none;
   cursor: pointer;
   border: none;
   border-radius: 11px;
+  color: #9a96c8;
 `;
 const LoginPage = ({ handleClickCancel }) => {
   const [idValue, setIdValue] = useState("");
@@ -89,7 +100,7 @@ const LoginPage = ({ handleClickCancel }) => {
         <MdCancel size={30} />
       </CloseButton>
       <Loginform action="/login-confirm" className="login-box" method="post">
-        <H2>로그인</H2>
+        <H2>DA-ARA</H2>
         <Label htmlFor="name">학번 </Label>
         <Input
           name="uID"

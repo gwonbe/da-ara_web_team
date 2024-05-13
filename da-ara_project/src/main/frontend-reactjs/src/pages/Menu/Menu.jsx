@@ -30,6 +30,7 @@ const Ul = styled.ul`
   padding: 0;
 `;
 const Li = styled.li`
+  // font-family: "NanumSquareRoundEB";
   font-weight: bold;
   display: inline-block;
   width: 180px;
