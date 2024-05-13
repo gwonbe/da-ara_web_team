@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { MdCancel } from "react-icons/md";
+import "../../assets/fonts/fonts.css";
 
 const Form = styled.div`
   width: 100%;
@@ -17,9 +18,9 @@ const Loginform = styled.form`
 
 const H2 = styled.h2`
   padding: 15px;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 25px;
   text-align: center;
+  font-family: "NanumSquareRoundEB";
 `;
 const ButtonForm = styled.div`
   background: #f3f2fd;
@@ -39,13 +40,17 @@ const Button = styled.button`
   border-radius: 9px;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 15px;
+  font-family: "NanumSquareRoundEB";
   &:hover {
     background-color: #7586ff;
     color: white;
   }
 `;
 const Label = styled.label`
+  padding-left: 1rem;
   display: block;
+  font-family: "NanumSquareRoundR";
 `;
 
 const Input = styled.input`
@@ -88,7 +93,7 @@ const LoginPage = ({ handleClickCancel }) => {
         <Label htmlFor="name">학번 </Label>
         <Input
           name="uID"
-          type="number"
+          type="text"
           id="username"
           placeholder="학번을 입력하세요."
           autoComplete="username"

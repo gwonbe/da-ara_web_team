@@ -2,3 +2,27 @@
   font-family: "BagleFatOne";
   src: url("../fonts/BagelFatOne-Regular.ttf") format("truetype");
 }
+
+@font-face {
+  font-family: "AppleNeo";
+  src: url("../fonts/AppleNeo.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumSquareRoundB";
+  src: url("../fonts/NanumSquareRoundB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundEB";
+  src: url("../fonts/NanumSquareRoundEB.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundL";
+  src: url("../fonts/NanumSquareRoundL.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "NanumSquareRoundR";
+  src: url("../fonts/NanumSquareRoundR.ttf") format("truetype");
+}
