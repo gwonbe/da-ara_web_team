@@ -2,6 +2,7 @@ import { useState } from "react";
 import Select from "react-select";
 import styled from "styled-components";
 import { MdCancel } from "react-icons/md";
+import "../../assets/fonts/fonts.css";
 
 const Form = styled.div`
   width: 100%;
@@ -16,10 +17,10 @@ const Loginform = styled.form`
 `;
 
 const H2 = styled.h2`
-  padding: 5px;
-  font-size: 22px;
-  font-weight: 600;
+  padding: 15px;
+  font-size: 25px;
   text-align: center;
+  font-family: "NanumSquareRoundEB";
 `;
 const ButtonForm = styled.div`
   background: #f3f2fd;
@@ -39,6 +40,8 @@ const Button = styled.button`
   border-radius: 9px;
   cursor: pointer;
   transition: all 0.3s;
+  font-size: 15px;
+  font-family: "NanumSquareRoundEB";
   &:hover {
     background-color: #7586ff;
     color: white;
@@ -52,7 +55,9 @@ const CloseButton = styled.button`
   border-radius: 11px;
 `;
 const Label = styled.label`
+  padding-left: 1rem;
   display: block;
+  font-family: "NanumSquareRoundR";
 `;
 const Input = styled.input`
   width: 100%;
@@ -62,6 +67,10 @@ const Input = styled.input`
   &:foucus {
     outline: none;
   }
+`;
+const P = styled.p`
+  padding-left: 1rem;
+  font-family: "NanumSquareRoundR";
 `;
 
 const SignupPage = ({ handleClickCancel }) => {
@@ -196,7 +205,7 @@ const SignupPage = ({ handleClickCancel }) => {
           name="uPW"
         ></Input>
         {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
-        <p>비밀번호는 영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</p>
+        <P>영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</P>
         <Select
           onChange={handleMajorChange}
           options={options}
