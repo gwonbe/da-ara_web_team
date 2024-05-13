@@ -15,22 +15,29 @@ const Loginform = styled.form`
   row-gap: 16px;
   padding: 5px;
 `;
-
+const StyledSelect = styled(Select)`
+  width: 90%;
+  margin: 0 auto;
+`;
 const H2 = styled.h2`
-  padding: 15px;
-  font-size: 25px;
+  font-size: 50px;
   text-align: center;
-  font-family: "NanumSquareRoundEB";
+  font-family: "BagleFatOne";
+  color: #fff;
+  -webkit-text-stroke: 1px #9a96c8;
 `;
 const ButtonForm = styled.div`
   background: #f3f2fd;
   color: white;
   align-self: end;
   padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 const Button = styled.button`
   background-color: #d6d4f2;
-  width: 100%;
+  width: 90%;
   color: black;
   font-weight: bold;
   outline: none;
@@ -48,23 +55,29 @@ const Button = styled.button`
   }
 `;
 const CloseButton = styled.button`
+  margin: 5px;
   // float: right;
   outline: none;
   cursor: pointer;
   border: none;
   border-radius: 11px;
+  color: #9a96c8;
 `;
 const Label = styled.label`
-  padding-left: 1rem;
+  padding-left: 2rem;
   display: block;
   font-family: "NanumSquareRoundR";
 `;
 const Input = styled.input`
-  width: 100%;
+  width: 90%;
+  margin: 0 auto; /* Add this line */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 1.2rem;
   border-radius: 9px;
   border: none;
-  &:foucus {
+  &:focus {
     outline: none;
   }
 `;
@@ -172,7 +185,7 @@ const SignupPage = ({ handleClickCancel }) => {
         <MdCancel size={30} />
       </CloseButton>
       <Loginform action="/signup-confirm" method="post">
-        <H2>회원가입</H2>
+        <H2>DA-ARA</H2>
         <Label>성명</Label>
         <Input
           onChange={(e) => {
@@ -206,7 +219,7 @@ const SignupPage = ({ handleClickCancel }) => {
         ></Input>
         {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
         <P>영문 대소문자, 숫자를 혼합하여 8~20자로 입력해주세요</P>
-        <Select
+        <StyledSelect
           onChange={handleMajorChange}
           options={options}
           value={selectedMajor}
