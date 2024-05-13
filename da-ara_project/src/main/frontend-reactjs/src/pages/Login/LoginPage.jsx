@@ -47,15 +47,17 @@ const Button = styled.button`
 const Label = styled.label`
   display: block;
 `;
+
 const Input = styled.input`
   width: 100%;
   padding: 1.2rem;
   border-radius: 9px;
   border: none;
-  &:foucus {
+  &:focus {
     outline: none;
   }
 `;
+
 const CloseButton = styled.button`
   // float: right;
   outline: none;

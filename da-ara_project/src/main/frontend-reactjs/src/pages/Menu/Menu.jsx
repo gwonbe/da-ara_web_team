@@ -9,6 +9,7 @@ import Translate from "../../components/Translate";
 import axios from "axios";
 import LogoutModal from "./LogoutModal";
 import "./menu.css";
+import GuideModal from "./GuideModal";
 
 const MenuHead = styled.div`
   height: 45px;
@@ -74,6 +75,7 @@ const Menu = ({ isOpen, onCancel }) => {
   const [isOpen1, setOpen1] = useState(false);
   const [isOpen2, setOpen2] = useState(false);
   const [isOpen3, setOpen3] = useState(false);
+  const [isOpen4, setOpen4] = useState(false);
   const [data, setData] = useState("");
 
   useEffect(() => {
@@ -86,6 +88,7 @@ const Menu = ({ isOpen, onCancel }) => {
   const handleModal1Cancel = () => setOpen1(false);
   const handleModal2Cancel = () => setOpen2(false);
   const handleModal3Cancel = () => setOpen3(false);
+  const handleModal4Cancel = () => setOpen4(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
@@ -106,12 +109,14 @@ const Menu = ({ isOpen, onCancel }) => {
             <NameLi>{`${data[2]} 님`}</NameLi>
             <Li onClick={() => setOpen3(true)}>로그아웃</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
+            <Li onClick={() => setOpen4(true)}>이용 가이드</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
           </>
         ) : (
           <>
             <Li onClick={() => setOpen1(true)}>로그인</Li>
             <Li onClick={() => setOpen2(true)}>회원가입</Li>
+            <Li onClick={() => setOpen4(true)}>이용 가이드</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
           </>
@@ -120,6 +125,7 @@ const Menu = ({ isOpen, onCancel }) => {
       <MyModal1 isOpen={isOpen1} onCancel={handleModal1Cancel} />
       <MyModal2 isOpen={isOpen2} onCancel={handleModal2Cancel} />
       <LogoutModal isOpen={isOpen3} onCancel={handleModal3Cancel} />
+      <GuideModal isOpen={isOpen4} onCancel={handleModal4Cancel} />
     </Modal>
   );
 };
