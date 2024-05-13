@@ -19,7 +19,7 @@ const MyModal2 = ({ isOpen, onCancel }) => {
     <Modal
       isOpen={isOpen}
       style={customStyles}
-      className="modal-content"
+      className="modal-content2"
       onRequestClose={handleClickCancel}
     >
       <SignupPage handleClickCancel={handleClickCancel} />
