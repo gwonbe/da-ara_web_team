@@ -1,66 +1,49 @@
 import { useState, useRef, useEffect } from "react";
 import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
-// import axios from "axios";
 
 const ChatWindow = ({ isVoiceEnabled }) => {
-  const [messages, setMassages] = useState([]);
+  const [messages, setMessages] = useState([]); // "setMassages"를 "setMessages"로 수정
   const inputElem = useRef(null);
   const messagesEndRef = useRef(null);
-  //const [data, setData] = useState("");
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:8080/daara")
-  //     .then((res) => setData(res.data))
-  //     .catch((err) => console.log(err));
-  // }, []);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
-    scrollToBottom();
+    requestAnimationFrame(() => {
+      scrollToBottom();
+    });
   }, [messages]);
-  const user = localStorage.getItem("user_data");
-  console.log(`${user[0]}, ${user[1]}, ${user[2]}, ${user[3]}, ${user[4]}`);
 
   const addMessage = (message, isUser) => {
-    setMassages((prevMessages) => [...prevMessages, { text: message, isUser }]);
+    setMessages((prevMessages) => [...prevMessages, { text: message, isUser }]);
   };
 
   function speak(text) {
     if (isVoiceEnabled) {
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "ko-KR"; //말하는 언어
-      utterance.rate = 1; //말하는 속도
+      utterance.lang = "ko-KR";
+      utterance.rate = 1;
       speechSynthesis.speak(utterance);
     }
   }
 
   const handleSubmit = async (message) => {
-    //사용자 메시지를 추가합니다.
-    addMessage(message, true);
+    addMessage(message, true); // 사용자 메시지 추가
     if (inputElem.current) {
       inputElem.current.focus();
     }
 
     try {
-      //console.log("API 실행을 시작합니다.");
-      fetch("http://127.0.0.1:5000/api/data")
-        .then(function (response) {
-          return response.json();
-        })
-        .then(function (myJson) {
-          //console.log(myJson);
-          //console.log(myJson["text"]);
-          localStorage.setItem("text", myJson["text"]);
-          speak(myJson["text"]);
-        });
-      addMessage(localStorage.getItem("text"), false);
+      const response = await fetch("http://127.0.0.1:5000/api/data");
+      const myJson = await response.json();
+      speak(myJson["text"]);
+      addMessage(myJson["text"], false); // API로부터 받은 메시지를 직접 채팅에 추가
     } catch (error) {
       console.error("Error fetching GPT response:", error);
+      addMessage("Failed to fetch response.", false); // 에러 메시지를 채팅에 추가
     }
   };
 
@@ -72,7 +55,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         muted
         width="100%"
         className="chat-character"
-        poster={`/spinnerImg.png`}
+        poster="/spinnerImg.png"
       >
         <source src="/video/defchar.mp4" type="video/mp4" />
       </video>
