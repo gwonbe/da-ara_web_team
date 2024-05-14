@@ -18,10 +18,10 @@
 @media (max-width: 500px) {
   .modal-content {
     width: 100vw; /* 모바일에서는 너비를 100vw로 설정 */
-    margin: 50vw auto;
+    margin: 50vh auto;
   }
   .modal-content2 {
     width: 100vw;
-    margin: 20vw auto;
+    margin: 50vh auto;
   }
 }

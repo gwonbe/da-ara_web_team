@@ -5,42 +5,41 @@ import { MdCancel } from "react-icons/md";
 import "../../assets/fonts/fonts.css";
 
 const Form = styled.div`
-  width: 100%;
+  width: 80%;
   margin: auto;
-  background-color: #f3f2fd;
+  background-color: #d5e2f2;
   border-radius: 11px;
 `;
 const Loginform = styled.form`
   display: grid;
   row-gap: 13px;
-  padding: 5px;
 `;
 
-const H2 = styled.h2`
-  font-size: 50px;
-  text-align: center;
-  font-family: "BagleFatOne";
-  color: #fff;
-  -webkit-text-stroke: 1px #9a96c8;
-`;
+// const H2 = styled.h2`
+//   font-size: 50px;
+//   text-align: center;
+//   font-family: "BagleFatOne";
+//   color: #fff;
+//   -webkit-text-stroke: 1px #a0bbf2;
+// `;
+
 const ButtonForm = styled.div`
-  background: #f3f2fd;
+  background-color: #d5e2f2;
   color: white;
   align-self: end;
   padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 11px;
 `;
 const Button = styled.button`
-  background-color: #d6d4f2;
-
+  background-color: #a0bbf2;
   width: 90%;
   color: black;
   font-weight: bold;
   outline: none;
   border: none;
-  margin: 0 2px;
   padding: 10px 24px;
   border-radius: 9px;
   cursor: pointer;
@@ -48,7 +47,7 @@ const Button = styled.button`
   font-size: 15px;
   font-family: "NanumSquareRoundEB";
   &:hover {
-    background-color: #7586ff;
+    background-color: #5576d9;
     color: white;
   }
 `;
@@ -79,7 +78,8 @@ const CloseButton = styled.button`
   cursor: pointer;
   border: none;
   border-radius: 11px;
-  color: #9a96c8;
+  color: #a0bbf2;
+  background-color: #d5e2f2;
 `;
 const LoginPage = ({ handleClickCancel }) => {
   const [idValue, setIdValue] = useState("");
@@ -100,7 +100,7 @@ const LoginPage = ({ handleClickCancel }) => {
         <MdCancel size={30} />
       </CloseButton>
       <Loginform action="/login-confirm" className="login-box" method="post">
-        <H2>DA-ARA</H2>
+        {/* <H2>DA-ARA</H2> */}
         <Label htmlFor="name">학번 </Label>
         <Input
           name="uID"
