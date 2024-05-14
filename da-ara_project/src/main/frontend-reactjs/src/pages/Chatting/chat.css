@@ -47,7 +47,6 @@
 .chat-messages {
   position: absolute;
   top: 45vh;
-  height: calc(60vh - 55px);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -58,7 +57,7 @@
   bottom: 55px;
   z-index: 0;
   @media (max-width: 500px) {
-    top: 39.5vh;
+    top: 36vh;
   }
 }
 
