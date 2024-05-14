@@ -1,5 +1,6 @@
 import Modal from "react-modal";
 import "./Modal.css";
+import Guide from "./Guide";
 
 const GuideModal = ({ isOpen, onCancel }) => {
   const customStyles = {
@@ -19,7 +20,9 @@ const GuideModal = ({ isOpen, onCancel }) => {
       style={customStyles}
       className="modal-content"
       onRequestClose={handleClickCancel}
-    ></Modal>
+    >
+      <Guide />
+    </Modal>
   );
 };
 

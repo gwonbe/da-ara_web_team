@@ -14,26 +14,28 @@ const Container = styled.div`
   top: 0;
   padding: 10px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 const Button = styled.button`
-  position: absolute;
   border: 0;
   background-color: transparent;
-  float: left;
   cursor: pointer;
-  left: 60px;
+  right: 15px;
 `;
 const Title = styled.h1`
   text-align: center;
   color: white;
   font-family: "BagleFatOne";
-  align-items: center;
+  margin: 0;
 `;
 const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (
     <>
       <Container>
         <SideBar />
+        <Title>DA-ARA</Title>
         <Button onClick={toggleVoice}>
           {isVoiceEnabled ? (
             <HiMiniSpeakerXMark size="40" color="#fff" />
@@ -41,8 +43,6 @@ const Header = ({ toggleVoice, isVoiceEnabled }) => {
             <HiMiniSpeakerWave size="40" color="#fff" />
           )}
         </Button>
-
-        <Title>DA-ARA</Title>
       </Container>
     </>
   );
