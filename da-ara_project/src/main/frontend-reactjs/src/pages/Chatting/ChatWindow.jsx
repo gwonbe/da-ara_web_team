@@ -3,7 +3,7 @@ import ChatMessage from "./ChatMessage";
 import ChatInput from "./ChatInput";
 
 const ChatWindow = ({ isVoiceEnabled }) => {
-  const [messages, setMessages] = useState([]); // "setMassages"를 "setMessages"로 수정
+  const [messages, setMessages] = useState([]);
   const inputElem = useRef(null);
   const messagesEndRef = useRef(null);
 
@@ -37,8 +37,29 @@ const ChatWindow = ({ isVoiceEnabled }) => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:5000/api/data");
-      const myJson = await response.json();
+      const response = await fetch("http://127.0.0.1:5000/api/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ userMessage: message }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("네트워크 오류");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data);
+          return data;
+        })
+        .catch((error) => {
+          console.error("에러 발생:", error);
+          throw error;
+        });
+      //
+      const myJson = await response;
       speak(myJson["text"]);
       addMessage(myJson["text"], false); // API로부터 받은 메시지를 직접 채팅에 추가
     } catch (error) {
