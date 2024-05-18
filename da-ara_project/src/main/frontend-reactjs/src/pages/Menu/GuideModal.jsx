@@ -21,7 +21,7 @@ const GuideModal = ({ isOpen, onCancel }) => {
       className="modal-content"
       onRequestClose={handleClickCancel}
     >
-      <Guide />
+      <Guide handleClickCancel={handleClickCancel} />
     </Modal>
   );
 };
