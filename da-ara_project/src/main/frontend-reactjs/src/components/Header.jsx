@@ -38,9 +38,9 @@ const Header = ({ toggleVoice, isVoiceEnabled }) => {
         <Title>DA-ARA</Title>
         <Button onClick={toggleVoice}>
           {isVoiceEnabled ? (
-            <HiMiniSpeakerXMark size="40" color="#fff" />
-          ) : (
             <HiMiniSpeakerWave size="40" color="#fff" />
+          ) : (
+            <HiMiniSpeakerXMark size="40" color="#fff" />
           )}
         </Button>
       </Container>

@@ -17,7 +17,7 @@ const Container = styled.div`
 `;
 
 const ChatPage = () => {
-  const [isVoiceEnabled, setIsVoiceEnabled] = useState(true);
+  const [isVoiceEnabled, setIsVoiceEnabled] = useState(false);
 
   const toggleVoice = () => {
     setIsVoiceEnabled(!isVoiceEnabled);
