@@ -14,13 +14,18 @@ import GuideModal from "./GuideModal";
 const MenuHead = styled.div`
   height: 45px;
   background-color: #152552;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 `;
 const Button = styled.button`
   padding-top: 5px;
   padding-right: 5px;
   border: 0;
   background-color: transparent;
-  float: right;
+  position: absolute;
+  right: 10px;
   cursor: pointer;
   box-sizing: content-box;
 `;
@@ -53,6 +58,17 @@ const NameLi = styled.li`
   list-style: none;
   margin: 5px 0px;
   padding: 5px 0px;
+`;
+const Img2 = styled.img`
+  width: 8vh;
+  bottom: 10%;
+`;
+const Img = styled.img`
+  width: 18vh;
+  position: absolute;
+  bottom: 10vh; /* 하단에서 10px 위치 */
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 const Menu = ({ isOpen, onCancel }) => {
@@ -99,6 +115,7 @@ const Menu = ({ isOpen, onCancel }) => {
   return (
     <Modal isOpen={isOpen} style={customStyles}>
       <MenuHead>
+        <Img2 src="/logo/firsthallym.png" alt="" />
         <Button onClick={onCancel}>
           <FaXmark size="30" color="#fff" />
         </Button>
@@ -120,6 +137,7 @@ const Menu = ({ isOpen, onCancel }) => {
             <Li onClick={() => setOpen4(true)}>이용 가이드</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
+            <Img src="/logo/bluelogo.png" alt="" />
           </>
         )}
       </Ul>
