@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import "./Modal.css";
+// import "./Modal.css";
 import Guide from "./Guide";
 
 const GuideModal = ({ isOpen, onCancel }) => {
