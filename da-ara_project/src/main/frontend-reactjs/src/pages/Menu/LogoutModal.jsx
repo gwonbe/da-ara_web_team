@@ -1,19 +1,12 @@
 import Modal from "react-modal";
 import LogoutPage from "../Login/LogoutPage";
+import "./Modal.css";
 
 const LogoutModal = ({ isOpen, onCancel }) => {
   const customStyles = {
     overlay: {
       zIndex: 1000,
       backgroundColor: "#00000070",
-    },
-    content: {
-      width: "400px",
-      inset: "unset",
-      margin: "50vh auto",
-      padding: 0,
-      transform: "translateY(-50%)",
-      position: "relative",
     },
   };
 
@@ -25,6 +18,7 @@ const LogoutModal = ({ isOpen, onCancel }) => {
     <Modal
       isOpen={isOpen}
       style={customStyles}
+      className="modal-content"
       onRequestClose={handleClickCancel}
     >
       <LogoutPage handleClickCancel={handleClickCancel} />
