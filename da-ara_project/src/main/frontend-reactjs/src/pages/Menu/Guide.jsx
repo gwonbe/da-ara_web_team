@@ -4,17 +4,11 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import styled from "styled-components";
 
 const GuideBox = styled.div`
-  width: 80%;
+  width: 75%;
   margin: auto;
   border-radius: 11px;
   padding: 10px;
-`;
-
-const Header = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: 10px;
+  position: relative;
 `;
 
 const CloseButton = styled.button`
@@ -24,6 +18,9 @@ const CloseButton = styled.button`
   border-radius: 11px;
   color: white;
   background-color: transparent;
+  position: absolute;
+  top: 10px;
+  right: 10px;
 `;
 
 const ImgContainer = styled.div`
@@ -33,21 +30,28 @@ const ImgContainer = styled.div`
 `;
 
 const Img = styled.img`
-  width: 90%;
+  width: 80vh;
   display: block;
   margin: auto;
+`;
+
+const ArrowContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 `;
 
 const ArrowButton = styled.button`
   outline: none;
   cursor: pointer;
   border: none;
-  color: white;
   background-color: transparent;
+  color: ${({ color }) => color};
   visibility: ${({ visible }) => (visible ? "visible" : "hidden")};
+  margin: 0 10px;
 `;
 
-const images = ["/da-araAimg.png", "/da-araBimg.png", "/da-araAimg.png"];
+const images = ["/daara-phone01.png", "/daara-phone02.png"];
 
 const Guide = ({ handleClickCancel }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -66,23 +70,28 @@ const Guide = ({ handleClickCancel }) => {
 
   return (
     <GuideBox>
-      <Header>
-        <CloseButton onClick={handleClickCancel}>
-          <MdCancel size={30} />
-        </CloseButton>
-      </Header>
+      <CloseButton onClick={handleClickCancel}>
+        <MdCancel size={30} />
+      </CloseButton>
       <ImgContainer>
-        <ArrowButton onClick={handlePrevClick} visible={currentImageIndex > 0}>
-          <IoIosArrowBack size={50} />
-        </ArrowButton>
         <Img src={images[currentImageIndex]} alt="" />
+      </ImgContainer>
+      <ArrowContainer>
+        <ArrowButton
+          onClick={handlePrevClick}
+          visible={currentImageIndex >= 0}
+          color={currentImageIndex === 0 ? "gray" : "white"}
+        >
+          <IoIosArrowBack size={30} />
+        </ArrowButton>
         <ArrowButton
           onClick={handleNextClick}
-          visible={currentImageIndex < images.length - 1}
+          visible={currentImageIndex <= images.length - 1}
+          color={currentImageIndex === images.length - 1 ? "gray" : "white"}
         >
-          <IoIosArrowForward size={50} />
+          <IoIosArrowForward size={30} />
         </ArrowButton>
-      </ImgContainer>
+      </ArrowContainer>
     </GuideBox>
   );
 };

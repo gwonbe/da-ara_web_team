@@ -33,6 +33,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
     if (inputElem.current) {
       inputElem.current.focus();
     }
+    addMessage(localStorage.getItem("userName") + " 님 환영합니다!", false);
 
     try {
       const response = await fetch("http://127.0.0.1:5000/api", {
@@ -48,7 +49,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
       }
 
       const data = await response.json();
-      
+
       speak(data.text);
       addMessage(data.text, false); // API로부터 받은 메시지 추가
     } catch (error) {
@@ -67,7 +68,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
         className="chat-character"
         poster="/spinnerImg.png"
       >
-        <source src="/video/defchar.mp4" type="video/mp4" />
+        <source src="/video/daara.mp4" type="video/mp4" />
       </video>
 
       <div className="chat-messages">
