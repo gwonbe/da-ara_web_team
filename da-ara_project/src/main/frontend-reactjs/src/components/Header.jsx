@@ -24,18 +24,16 @@ const Button = styled.button`
   cursor: pointer;
   right: 15px;
 `;
-const Title = styled.h1`
-  text-align: center;
-  color: white;
-  font-family: "BagleFatOne";
-  margin: 0;
+
+const Img = styled.img`
+  width: 20vh;
 `;
 const Header = ({ toggleVoice, isVoiceEnabled }) => {
   return (
     <>
       <Container>
         <SideBar />
-        <Title>DA-ARA</Title>
+        <Img src="/logo/whitelogo.png" alt="" />
         <Button onClick={toggleVoice}>
           {isVoiceEnabled ? (
             <HiMiniSpeakerWave size="40" color="#fff" />
