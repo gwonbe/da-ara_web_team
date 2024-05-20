@@ -82,6 +82,7 @@
   border-radius: 10px;
   padding: 8px;
   max-width: 60%;
+  white-space:pre-wrap;
 }
 
 .chat-input {

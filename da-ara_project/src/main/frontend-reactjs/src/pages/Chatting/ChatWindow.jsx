@@ -48,6 +48,7 @@ const ChatWindow = ({ isVoiceEnabled }) => {
       }
 
       const data = await response.json();
+      
       speak(data.text);
       addMessage(data.text, false); // API로부터 받은 메시지 추가
     } catch (error) {

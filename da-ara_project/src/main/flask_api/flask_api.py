@@ -60,6 +60,9 @@ def ask(question):
         if answer.startswith("답변:"):
             answer = answer[len("답변:"):].strip()
             
+        # 개행 문자를 <br/>로 변경
+        answer = answer.replace('\\n', '<br>')
+            
         return answer
     except Exception as e:
         print(f"질문 처리 중 오류 발생: {e}")
