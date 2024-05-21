@@ -34,9 +34,6 @@ const ChatWindow = ({ isVoiceEnabled }) => {
       inputElem.current.focus();
     }
     let userName = localStorage.getItem("userName");
-    if(userName != null || userName != undefined){
-      addMessage(userName + " 님 환영합니다!", false);
-    }
 
     try {
       const response = await fetch("http://127.0.0.1:5000/api", {

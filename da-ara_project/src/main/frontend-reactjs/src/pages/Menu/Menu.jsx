@@ -129,6 +129,7 @@ const Menu = ({ isOpen, onCancel }) => {
             <Li onClick={() => setOpen4(true)}>이용 가이드</Li>
             <Li onClick={toggleDropdown}>언어 변경</Li>
             <Translate isDropdownOpen={isDropdownOpen} />
+            <Img src="/logo/bluelogo.png" alt="" />
           </>
         ) : (
           <>

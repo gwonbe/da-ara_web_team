@@ -83,7 +83,7 @@ const Input = styled.input`
   }
 `;
 const P = styled.p`
-  padding-left: 0.5rem;
+  padding-left: 1.5rem;
   font-family: "NanumSquareRoundR";
 `;
 
@@ -218,7 +218,7 @@ const SignupPage = ({ handleClickCancel }) => {
           type="password"
           name="uPW"
         ></Input>
-        {pwdErrorMsg && <p style={{ color: "green" }}>{pwdErrorMsg}</p>}
+        {pwdErrorMsg && <P style={{ color: "green" }}>{pwdErrorMsg}</P>}
         <P>영문 대소문자, 숫자를 혼합하여 8~20자로 입력</P>
         <StyledSelect
           onChange={handleMajorChange}
