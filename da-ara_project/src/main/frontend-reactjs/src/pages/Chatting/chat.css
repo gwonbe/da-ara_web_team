@@ -24,14 +24,27 @@
     padding-top: 4vh;
   }
 }
-
+.chat-characterimg {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 45vh;
+  padding-top: 6vh;
+  outline: none;
+  border: 0;
+  z-index: 1;
+  @media (max-width: 500px) {
+    height: 40vh;
+    padding-top: 4vh;
+  }
+}
 .chat-character embed,
 .chat-character object {
   position: absolute;
   width: 100%;
   height: 100%;
 }
-
 .chat-window {
   display: flex;
   position: relative;
