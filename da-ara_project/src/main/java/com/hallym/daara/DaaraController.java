@@ -12,7 +12,7 @@ public class DaaraController{
 
     // http://localhost:8080/daara
     @RequestMapping("daara")
-    public Object requestMethodName(HttpServletRequest request) {
+    public Object daara(HttpServletRequest request) {
         System.out.println("# [DaaraController] daara()");
         Object[] userInfoArray = new String[5];
         HttpSession session = request.getSession();
