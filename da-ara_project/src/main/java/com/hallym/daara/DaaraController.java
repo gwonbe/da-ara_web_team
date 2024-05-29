@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RestController
 public class DaaraController{
 
-    // http://localhost:8080/daara
+    // http://localhost:8080
     @RequestMapping("daara")
     public Object daara(HttpServletRequest request) {
         System.out.println("# [DaaraController] daara()");
